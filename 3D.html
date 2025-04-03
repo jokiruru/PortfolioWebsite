@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jokiruru's website</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/3Dgallery.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+    <div class="container">
+    <!-- 🎨 Left Side (Gallery) -->
+    <div class="gallery-box">
+        
+        <!-- Left panel (icons change based on navigation selection) -->
+        <div class="left-panel environment">
+        
+                <!-- Home Icon (Appears in Every Category) -->
+            <div class="panel-icon" onclick="resetGallery()">
+                <img src="3D/homeicon.png" alt="Home">
+            </div>
+            <div class="panel-icon" onclick="showProject('env1', 'Kuus Apartment', 
+                `<p>My environment made for a game tech class. The level is to be set in my character's apartment, which is to be dreary and cramped. I decided to go for a low-poly look because the class also required gameplay in the level. The outdoor gazebo is the area that the player can access after going to sleep in their apartment. It's a remake of my first attempt at making this same scene last year. Remake because I neglected to transfer my files on the school computer to somewhere safe (they were all deleted)
+                <img src='icons/sadcat.webp' alt='sadcat' class='icon'></p>
+                
+                <p>On the bright side, I got a better result this time. It was fun to play with unreal lighting/post-processing to create a more dreamy atmosphere. Unfortunately, it was a last-minute decision to create this second scene so I had to cram it all in one night and will probably have to build upon it in the future.
+                <img src='icons/melody30.gif' alt='melodyroll' class='icon'></p>` )">
+                
+                <img src="3D/gametechicon.png" alt="Environment 1">
+            </div>
+
+            <div class="panel-icon" onclick="showProject('env2', 'Tech Anim', 'A room environment I modeled and rendered in Maya for a technical animation class. The room is based on a jirai-kei girl who likes cute things. This is one of my earlier 3D modeling projects and was very fun! (The character was often mistaken to be a self-insert but unfortunately my room is not this cute and she is simply an outlet for my interests...)')">
+                <img src="3D/techanimicon.png" alt="Environment 2">
+            </div>
+            <div class="panel-icon" onclick="showProject('env3', 'Marinas Room', 'Another room environment that I modeled in Maya and rendered in Unreal Engine 5 for my game art class. The prompt was to imagine/model a not yet exisisting environment for a character. I chose Marina Domek from Fear and Hunger: Termina as my subject since she has a polarizing aesthetic to the other environment I was building in the same quarter. (but also because I adore her)... I will be honest, I was not very proud of my final work for this class because I feel like I couldve done better with the UVs/texturing/overall aesthetic.')">
+                <img src="3D/marinaroomicon.png" alt="Environment 3">
+            </div>
+            <div class="panel-icon" onclick="showProject('env4', 'Outdoor Gazebo', 'made for my digital design aesthetics class. my first experience with 3D modeling and setting up an ue5 scene.')">
+                <img src="3D/ddaicon.png" alt="Environment 4">
+            </div>   
+        </div>
+
+        
+        <div class="left-panel characters hidden">
+        
+                <!-- Home Icon (Appears in Every Category) -->
+            <div class="panel-icon" onclick="resetGallery()">
+                <img src="3D/homeicon.png" alt="Home">
+            </div>
+            <div class="panel-icon characters" onclick="showProject('chara1', 'Low-Poly Kuu', 'Yepp yepppp Ahhh Yep')">
+                <img src="3D/kuuicon.png" alt="Character 1">
+            </div>
+            <div class="panel-icon characters" onclick="showProject('chara2', 'Low-Poly Ruti', 'CLANK CLANK CLANK')">
+                <img src="3D/rutiicon.png" alt="Character 2">
+            </div>
+        </div>
+        
+        <div class="left-panel miscellaneous hidden">
+                <!-- Home Icon (Appears in Every Category) -->
+            <div class="panel-icon" onclick="resetGallery()">
+                <img src="3D/homeicon.png" alt="Home">
+            </div>
+            <div class="panel-icon miscellaneous" onclick="showProject('misc1')">
+                <img src="misc-icon1.png" alt="Misc 1">
+            </div>
+            <div class="panel-icon miscellaneous" onclick="showProject('misc2')">
+                <img src="misc-icon2.png" alt="Misc 2">
+            </div>
+        </div>
+
+        <!-- Right panel (Displays selected project) -->
+        <div class="right-panel">
+            <div id="default-project" class="project-content active">
+                <img src="default-image.png" alt="Default">
+                <p>Welcome to my 3D Gallery!</p>
+            </div>
+            
+            <!-- ENVIRONMENTS -->
+            
+            <div id="env1" class="project-content">
+                <h2>Winter 2025</h2>
+                <img src="3D/gametech2.png" alt="Environment 1">
+                <img src="3D/gametech3.png" alt="Environment 1">
+                <img src="3D/gametech4.png" alt="Environment 1">
+                <h2>Outdoor Gazebo</h2>
+                <img src="3D/gametech.png" alt="Environment 1">
+                <h2>Concept Art/Sketches</h2>
+                <img src="3D/gametech5.png" alt="Environment 1">
+                <img src="3D/gametech6.png" alt="Environment 1">
+                <h2></h2>
+            </div>
+            <div id="env2" class="project-content">
+                <h2>Fall 2024</h2>
+                <img src="3D/techanim.jpeg" alt="Environment 2">
+                <h2>Sketch/Concept</h2>
+                <img src="3D/techanim2.jpg" alt="Environment 2">
+                <h2>Blockout</h2>
+                <img src="3D/techanim3.jpg" alt="Environment 2">
+                <h2>Wireframe</h2>
+                <img src="3D/techanim4.jpg" alt="Environment 2">
+                <h2>Textured Render</h2>
+                <img src="3D/techanim5.jpg" alt="Environment 2">
+                <h2>Character!</h2>
+                <img src="3D/techanim6.png" alt="Environment 2">
+            </div>
+            <div id="env3" class="project-content"> <!-- Make sure it's "env3" exactly -->
+                <h2>Fall 2024</h2>
+                <img src="3D/marinaroom.jpeg" alt="Environment 3">
+                <div class="gif-text-container">
+                <img src="3D/marinadomek.webp" alt="Environment 3" class="left-gif">
+                    <div class="text-box">
+                        <h1>Marina Domek</h1>
+                        <p>A cultist And And and and shes very fun and I like her Ok, this is supposed to represent her room at her boarding school</p>
+                    </div>
+                </div>
+                <h2>Concept Sketches/Art</h2>
+                <img src="3D/marinaroom2.png" alt="Environment 3">
+                <img src="3D/marinaroom3.png" alt="Environment 3">
+                <h2>Beauty Shot</h2>
+                <img src="3D/marinaroom4.png" alt="Environment 3">
+                <h2>Ue5 Screenshots</h2>
+                <img src="3D/marinaroom5.png" alt="Environment 3">
+                <img src="3D/marinaroom6.png" alt="Environment 3">
+            </div>
+            
+            <div id="env4" class="project-content">
+                <img src="3D/dda.png" alt="Environment 4">
+                <h2>Environment Project 4</h2>
+                <p>Some description here.</p>
+            </div>
+            
+            <!-- CHARACTERS -->
+            
+            <div id="chara1" class="project-content">
+                <img src="3D/kuu3d.gif" alt="Character 1">
+                <p>Kuu Model</p>
+            </div>
+            <div id="chara2" class="project-content">
+                <img src="ruticircle.gif" alt="Character 2">
+                <p>Ruti Model</p>
+            </div>
+            
+            <!-- MISCELLANEOUSS -->
+    
+            <div id="misc1" class="project-content">
+                <img src="misc1.gif" alt="Miscellaneous 1">
+                <p>Miscellaneous Project 1</p>
+            </div>
+            <div id="misc2" class="project-content">
+                <img src="misc2.gif" alt="Miscellaneous 2">
+                <p>Miscellaneous Project 2</p>
+            </div>
+        </div>
+    </div>
+        
+        <!-- 🎀 Right Side (Info Box) -->
+        <div class="right-column">
+            <div class="info-box">
+                <h2 class="info-header" id="wobble">3D art</h2>
+                <div class="info-content">
+                  <p>3D stuffs.. I use Blender mostly but also Maya.. I will try to link stuff to art station/sketchfab for the breakdowns .<img src="icons/strawberry2.gif" alt="bear" class="icon"></p>
+                </div>
+            </div>
+            <!-- Navigation Panel -->
+            <div class="nav-panel">
+                <!-- Buttons for different sections -->
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('environment')">Environment</button>
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('characters')">Characters</button>
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('miscellaneous')">Miscellaneous</button>
+            </div>
+        </div>
+    </div>
+    <a href="index.html" class="swinging-button">
+        <img src="backbtn.png" alt="Back Home">
+    </a>
+
+    <script>
+// Function to switch galleries based on the category clicked (environment, characters, or miscellaneous)
+function switchGallery(category) {
+    document.querySelector('.right-panel').scrollTop = 0;
+
+
+    // Hide all left panels first
+    document.querySelectorAll('.left-panel').forEach(panel => panel.classList.add('hidden'));
+
+    // Show the selected category's icons
+    const categoryPanel = document.querySelector(`.${category}`);
+    if (categoryPanel) {
+        categoryPanel.classList.remove('hidden');
+    } else {
+        console.log(`Category panel "${category}" not found.`);
+    }
+
+    // Hide all project content when switching categories
+    document.querySelectorAll('.project-content').forEach(project => project.classList.remove('active'));
+
+    // Reset the right panel content to default if no project is active
+    const activeProject = document.querySelector('.project-content.active');
+    if (!activeProject) {
+        resetInfoPanel();  // Reset info panel to default
+        showDefaultProject();  // Show default project if no active project
+    }
+}
+
+// Function to show the selected project based on the project ID
+function showProject(projectId, projectTitle, projectDesc) {
+    document.querySelector('.right-panel').scrollTop = 0;
+
+    // Hide all projects
+    document.querySelectorAll('.project-content').forEach(project => project.classList.remove('active'));
+
+    // Show the selected project
+    const selectedProject = document.getElementById(projectId);
+    if (selectedProject) {
+        selectedProject.classList.add('active');
+    } else {
+        console.log(`Project ${projectId} not found.`);
+    }
+
+    // Update info panel text
+    document.querySelector('.info-header').innerText = projectTitle;
+    document.querySelector('.info-box p').innerHTML = projectDesc;
+
+    // Remove highlight from all icons
+    document.querySelectorAll('.panel-icon').forEach(icon => icon.classList.remove('active-icon'));
+
+    // Highlight the clicked icon
+    const clickedIcon = event.currentTarget;
+    if (clickedIcon) {
+        clickedIcon.classList.add('active-icon');
+    }
+}
+
+// Function to reset gallery to default view
+function resetGallery() {
+    console.log("Resetting gallery to default");
+
+    // Hide all projects
+    document.querySelectorAll('.project-content').forEach(project => project.classList.remove('active'));
+
+    // Show default project
+    const defaultProject = document.getElementById('default-project');
+    if (defaultProject) {
+        defaultProject.classList.add('active');
+    } else {
+        console.log("Default project not found!");
+    }
+
+    // Reset info panel to "Home" content
+    resetInfoPanel();
+
+    // Show default project in the right panel
+    showDefaultProject();
+
+    // Remove highlight from all icons
+    document.querySelectorAll('.panel-icon').forEach(icon => icon.classList.remove('active-icon'));
+
+    // Highlight home icon
+    document.querySelector('.panel-icon.home')?.classList.add('active-icon');
+}
+
+// Helper function to reset the info panel to Home content
+function resetInfoPanel() {
+    let infoPanel = document.querySelector('.right-column'); 
+    if (infoPanel) {
+        infoPanel.querySelector('.info-header').innerText = "3D art";
+        infoPanel.querySelector('.info-box p').innerHTML = `3D stuffs.. I use Blender mostly but also Maya.. I will try to link stuff to ArtStation/Sketchfab for the breakdowns. <img src="icons/strawberry2.gif" alt="bear" class="icon">`;
+    }
+}
+
+// Function to reset the right panel to default project
+function showDefaultProject() {
+    const defaultProject = document.getElementById('default-project');
+    const rightPanel = document.querySelector('.right-column');
+
+    if (defaultProject && rightPanel) {
+        // Only update the project content inside the right panel, not the entire panel
+        const existingProject = rightPanel.querySelector('.project-content');
+        
+        // If no existing content, insert the default project content
+        if (!existingProject) {
+            const defaultProjectContent = `
+                <div id="default-project" class="project-content active">
+                    <img src="default-image.png" alt="Default">
+                    <p>Welcome to my 3D Gallery!</p>
+                </div>
+            `;
+            rightPanel.querySelector('.project-content').innerHTML = defaultProjectContent;
+        }
+
+        // Update the info panel with default project info
+        const projectTitle = defaultProject.querySelector('.project-title') ? defaultProject.querySelector('.project-title').innerText : "Default Project";
+        const projectDesc = defaultProject.querySelector('.project-description') ? defaultProject.querySelector('.project-description').innerHTML : "Default description content.";
+
+        const infoPanel = document.querySelector('.right-column');
+        if (infoPanel) {
+            infoPanel.querySelector('.info-header').innerText = projectTitle;
+            infoPanel.querySelector('.info-box p').innerHTML = projectDesc;
+        }
+    } else {
+        console.log("Default project or right panel not found!");
+    }
+}
+</script>
+    <script src="cursorbubble.js"></script>
+    <script src="textwobble.js"></script>
+
+<style>
+@font-face {
+    font-family: 'Sniglet';
+    src: url('fonts/Sniglet-Regular.ttf') format('truetype');
+}
+
+:root {
+    --border-color: #ffb6c1;
+    --text-color: #D380A1;
+}
+
+body {
+    color: var(--text-color);
+    font-family: 'Sniglet', sans-serif;
+    background: url('lamb.png') repeat;
+    background-size: 164px 99px; /* Adjust based on your pattern size */
+    animation: moveBackground 40s linear infinite;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes moveBackground {
+    100% {
+        background-position: 0 0;
+    }
+    0% {
+        background-position: 100% 100%;
+    }
+}
+
+/* 🌸 Layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Center horizontally and align the top */
+    height: auto;
+    width: 90vw;
+    margin-left: 160px;
+}
+
+.gallery-box {
+    background: url('panel3.png') no-repeat center/contain;
+    display: flex;
+    width: 70%;
+    max-width: 1500px;
+    height: 90vh;
+    justify-content: space-between; /* Creates space between the left and right panels */
+    padding: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    
+}
+/* Left panel for thumbnails */
+.left-panel {
+    max-height: 70vh; /* Limits the height to the container's height */
+    width: 15%;
+    display: flex;
+    flex-direction: column; /* Ensures stacking */
+    align-items: center;
+    gap: 20px; /* Adjust spacing between icons */
+    padding: 10px;
+    overflow-y: auto; /* Allows vertical scrolling if needed */
+    overflow-x: hidden; /* Prevesnts horizontal scrolling */
+    margin: 120px 20px 0px 50px;
+}
+
+/* Hide icons by default (only the relevant ones show) */
+.hidden {
+    display: none;
+}
+
+/* .panel-icon */
+.panel-icon {
+    width: 120px; /* Set a fixed square size */
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure pseudo-elements are positioned correctly */
+    margin: 20px; /* Adjust the spacing between icons */
+}
+
+/* Ensure images inside panel-icon fit correctly */
+.panel-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images remain square and don't stretch */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Lace border using pseudo-element */
+.panel-icon::before {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute;
+    top: -10px; /* Adjust position of lace border */
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: url('iconborder.png'); /* Add your lace border image here */
+    background-size: cover; /* Ensure the lace image covers the border */
+    background-repeat: no-repeat;
+    border-radius: 10px; /* Optional: Add rounded corners to the lace border */
+    z-index: 1; /* Position it behind the icon */
+}
+
+/* Fix hover effect */
+.panel-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Highlight effect when active */
+.panel-icon.active-icon {
+    background-color: rgba(255, 182, 193, 0.6); /* Light pink background */
+    border: 2px solid pink; /* Pink border */
+    border-radius: 8px;
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+/* Apply the highlight to the image inside */
+.panel-icon.active-icon img {
+    filter: brightness(1.2); /* Make the icon slightly brighter */
+}
+
+
+/* Right panel for displaying selected project */
+.right-panel {
+    width: 80%; /* Adjusted for better balance with left panel */
+    height: 78%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 120px 30px 0px 0px;
+    overflow-y: auto; /* Ensures content doesn't overflow */
+}
+
+.project-content {
+    display: none;
+    text-align: center;
+}
+
+.project-content img {
+    max-width: 100%;
+    height: auto;
+    max-height: 65%;
+    border-radius: 8px;
+}
+
+.project-content.active {
+    display: block;
+}
+
+.project-content p {
+    font-size: 24;
+    color: #D380A1
+}
+
+.gif-text-container {
+    display: flex;
+    align-items: center; /* Align GIF and text vertically */
+    gap: 20px; /* Space between GIF and text */
+    max-width: 80%; /* Prevents it from stretching too wide */
+    margin: auto; /* Center the whole block */
+}
+
+.left-gif {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    flex-shrink: 0; /* Prevents GIF from shrinking */
+}
+
+.text-box {
+    max-width: 400px; /* Limit text width */
+    text-align: left;
+}
+
+
+/* 🎀 Right column*/
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 23vw;
+    height: 90vh;
+    margin: 30px;
+    position: relative;
+    z-index: 0;
+}
+
+/* 🌸 Info Box */
+.info-box {
+    background: url('panel4.png') no-repeat center/contain;
+    height: 50vh;
+    width: 23vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px; /* Remove excessive padding */
+}
+
+/* 🌸 Header Styling (Fixed Position Inside Info Box) */
+.info-header {
+    position: absolute;
+    top: 5%; /* Adjust as needed */
+    left: 35%;
+    transform: translateX(-50%); /* Center horizontally */
+    font-size: 30px;
+    color: #D380A1;
+    font-weight: bold;
+    text-align: center;
+    width: 60%;
+    padding: 10px;
+}
+
+/* 🌸 Scrollable Text Box */
+.info-content {
+    width: 90%; /* Wider */
+    height: 60%; /* Shorter */
+    overflow-y: auto; /* Enable vertical scrolling */
+    text-align: center;
+    font-size: 18px;
+    color: #3f2f5e;
+    line-height: 2.4;
+    margin-top: 130px; /* Push down from header */
+    padding: 10px;
+}
+
+/* Navigation panel on the right */
+.nav-panel {
+    background: url('panel5.png') no-repeat center/contain;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Ensures vertical centering */
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+}
+
+.btn {  
+  font-family: Arial, Helvetica, sans-serif;  
+  text-transform: uppercase;
+}  
+
+.btn:hover .btn-slide-show-text1 {  
+  margin-left: 65px;
+}  
+
+.btn-layered-3d > ::before {  
+  box-sizing: border-box;
+}  
+
+.btn-layered-3d {  
+  width: 180px;  
+  position: relative;  
+  display: inline-block;  
+  cursor: pointer;  
+  outline: none;  
+  border: 0px;  
+  vertical-align: middle;  
+  text-decoration: none;  
+  font-size: inherit;  
+  font-family: inherit;  
+  font-weight: 600;  
+  text-transform: uppercase;  
+  padding: 1.15em 2em;  
+  border-radius: 0.75em;  
+  transform-style: preserve-3d;  
+  transition: transform 0.15s ease-out, background 0.15s ease-out;
+  margin-bottom: 0.5em;  /* Increases gap between buttons */
+  margin-left: 80px;
+}  
+
+/* Bottom shadow layer */
+.btn-layered-3d::before {  
+  position: absolute;  
+  content: "";  
+  width: 100%;  
+  height: 100%;  
+  inset: 0px;  
+  border-radius: inherit;  
+  transform: translate3d(0px, 0.5em, -1em); /* Made the bottom part smaller */
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}  
+
+/* Pressing effect */
+.btn-layered-3d:hover {  
+  transform: translateY(0.25em);
+}  
+
+.btn-layered-3d:hover::before {  
+  transform: translate3d(0px, 0.35em, -1em); /* Keeps the bottom part in place */
+}  
+
+/* Button color */
+.btn-layered-3d--pink {  
+  color: #a95196;
+  background: #f1d5e6;  
+  border: 2px solid #7c1b5e;
+}  
+
+/* Adjusted bottom shadow */
+.btn-layered-3d--pink::before {  
+  background: #a95196;
+  box-shadow: rgb(147, 26, 62) 0px 0px 0px 2px,  
+              rgb(255, 229, 237) 0px 0.4em 0px 0px; /* Made the shadow smaller */
+}  
+
+/* Go back button */
+.swinging-button {
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    z-index: 9999;
+    animation: swing 3s ease-in-out infinite alternate;
+}
+
+.swinging-button img {
+    height: 100vh;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+/* 🌸 Mobile Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery-box {
+        width: 90vw;
+        height: 80vh;
+    }
+    .gallery-grid {
+        width: 90%;
+        max-height: 70vh;
+    }
+    .right-column {
+        width: 90vw;
+    }
+}
+</style>
+</body>
+</html>

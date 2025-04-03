@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The web site of jokiruru</title>
+    <!-- The style.css file allows you to change the look of your web pages.
+         If you include the next line in all your web pages, they will all share the same look.
+         This makes it easier to make new pages for your site. -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/about.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="container">
+        <!-- 🌸 Cute Nav Panel -->
+        <div class="nav-panel">
+            <div class="nav-button" onclick="switchTab('profile')">
+                <img src="profile-icon.png" alt="👤"> Profile
+            </div>
+            <div class="nav-button" onclick="switchTab('interests')">
+                <img src="star-icon.png" alt="⭐"> Interests
+            </div>
+            <div class="nav-button" onclick="switchTab('links')">
+                <img src="link-icon.png" alt="🔗"> Links
+            </div>
+            <div class="nav-button" onclick="switchTab('misc')">
+                <img src="heart-icon.png" alt="💖"> Misc
+            </div>
+        </div>
+    
+        <!-- 📜 Main Panel Content -->
+        <div class="main-panel">
+            <div id="profile" class="content-section active">
+                <h2>Profile</h2>
+                <p>About me</p>
+            </div>
+            <div id="interests" class="content-section">
+                <h2>Interests</h2>
+                <p>Things I like</p>
+            </div>
+            <div id="links" class="content-section">
+                <h2>Links</h2>
+                <p>Find me</p>
+            </div>
+            <div id="misc" class="content-section">
+                <h2>Misc</h2>
+                <p>fun stuff</p>
+            </div>
+        </div>
+    </div>
+    
+    <a href="index.html" class="swinging-button">
+        <img src="backbtn.png" alt="Back Home">
+    </a>
+    
+    <script>
+    function switchTab(tabId) {
+        // Hide all sections with animation
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+    
+        // Show the clicked section with animation
+        setTimeout(() => {
+            document.getElementById(tabId).classList.add('active');
+        }, 100); // Delay for smooth fade effect
+    }
+
+    </script>
+<style>
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('clouds.gif') repeat-x; 
+    font-family: 'Sniglet', sans-serif;
+}
+
+/* 🍰 Layout Container */
+.container {
+    display: flex;
+    align-items: flex-end; /* Aligns nav to bottom-left */
+    gap: 5px; /* Space between nav and main panel */
+    position: relative;
+    padding: 0 0 0 10%;
+}
+
+/* 🍓 Cute nav panel */
+.nav-panel {
+    background: url('panel9.png') no-repeat center/contain;
+    width: 25%;
+    height: 400px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allows the 2x2 layout */
+    justify-content: center;
+    align-items: center;
+    Border: 3px solid red;
+}
+
+/* 🎀 Nav Buttons */
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+/* ✨ Wider bottom buttons */
+.nav-button:nth-child(3),
+.nav-button:nth-child(4) {
+    width: 120px;
+}
+
+/* 🍓 Hover Effect */
+.nav-button:hover {
+    background: #ff9aa2;
+    color: white;
+}
+
+/* 🎂 Icon Style */
+.nav-button img {
+    width: 18px;
+    margin-right: 5px;
+}
+
+/* 📜 Main panel */
+.main-panel {
+    background: url('panel8.png') no-repeat center/contain;
+    width: 45vw;
+    min-height: 80vh;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    Border: 3px solid red;
+}
+
+/* 💖 Hide content sections initially */
+.content-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* ✨ Show active section with animation */
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Go back button */
+.swinging-button {
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    z-index: 9999;
+    animation: swing 3s ease-in-out infinite alternate;
+}
+
+.swinging-button img {
+    height: 100vh;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+</style>
+  </body>
+</html>

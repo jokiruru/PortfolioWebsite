@@ -1,0 +1,469 @@
+@font-face {
+    font-family: 'sniglet'; /* You can name it whatever you want */
+    src: url('fonts/Sniglet-Regular.ttf') format('truetype'), /* Point to your font file */
+}
+
+body {
+    font-family: 'Sniglet', sans-serif;
+    height: 100vh;
+    background: url('cloud.png') repeat-x;  /* Tile the cloud image horizontally */
+    background-size: cover;  /* Ensure it covers the width properly */
+    animation: scrollClouds 120s linear infinite;  /* Animates the background */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    cursor: url('cursor.gif') 16 16, auto; /* 16 16 offsets (center the hotspot) */
+}
+
+/* Animation to scroll the background */
+@keyframes scrollClouds {
+    0% { background-position: 0 0; } /* Starting position */
+    100% { background-position: 100% 0; } /* Ending position (move all the way to the right) */
+}
+
+a, button { /* Links & buttons */
+    cursor: url('pointer.png') 16 16, pointer;
+}
+
+.panel {
+    position: relative;
+    background: url('LacePanel.PNG') center/contain no-repeat;
+    width: 100%;
+    max-width: 1000px; 
+    min-height: 750px; /* ✅ Change this to min-height instead of fixed height */
+    margin: 50px auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* ✅ Align the panels at the top */
+    flex-wrap: wrap; /* ✅ Allows wrapping if needed */
+}
+
+
+.flex-container {
+    display: flex;
+    gap: 10px; /* Space between panels */
+    justify-content: center; /* ✅ Centers the panels inside */
+    width: 100%; /* ✅ Makes sure it fills the panel */
+    max-width: 1200px; /* ✅ Stops it from getting too wide */
+    padding: 10px;
+}
+
+
+/* 🎀 Side-by-side panels */
+.flex-panel {
+    flex: 1; /* Makes sure both panels take up equal space */
+    max-height: 620px; /* ⬅ Stops panels from getting too big */
+    min-height: 400px;
+    max-width: 640px;
+    min-width: 450px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    align-items: center;
+    position: relative; /* ⬅ Ensures it stays inside */
+    margin-top: 50px; /* ⬅ Moves it down */
+    flex-direction: column; /* Stacks things inside from top to bottom */
+    height: auto;
+    overflow-y: auto; /* 🎀 SCROLLS when content is too long! */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.flex-panel-welcome {
+    background: #F1D4DF;
+    padding: 5px;
+    display: flex;
+    flex-direction: column; /* Stack contents vertically */
+    align-items: center; /* Center items inside */
+    min-height: 80px; /* Ensure it has space */
+    width: 100%; /* Make sure it expands */
+    position: relative; /* Helps with layout */
+    overflow: visible; /* Ensures the bow is not cut off */
+}
+
+/* Align image and text horizontally inside the subpanel */
+.welcome-content {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+    align-items: center; /* Vertically center text and image */
+    position: relative;
+}
+
+/* Welcome text style */
+.welcome-text {
+    font-size: 36px;
+    color: white;
+    margin: 10;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for welcome text */
+.welcome-text:hover {
+    color: white;
+    transform: scale(1.1); /* Enlarges the text slightly */
+}
+
+.bow-image {
+    position: absolute;
+    top: 40px;
+    left: 89%; /* Centers it */
+    transform: translateX(-50%); /* Perfect centering */
+    width: 180px; /* Resize as needed */
+    z-index: 10; /* Keeps it above the panel */
+}
+
+.text-content {
+    font-size: 24px;
+    color: #D380A1;
+    padding-left: 250px; /* Moves text to the right */
+    text-align: left; /* Keeps text aligned to the left */
+    max-width: 80%; /* Prevents text from stretching too wide */
+}
+
+.icon {
+    width: 24px; /* Size of the icon */
+    height: auto; /* Keeps aspect ratio of the icon */
+    vertical-align: middle; /* Aligns the icon vertically in line with text */
+    margin-left: 5px; /* Adds space between the icon and the text */
+}
+
+
+/* Lace divider styled as an image */
+.lace-divider {
+    width: 100%;
+    height: 65px;
+    background-image: url('lacedividers.png'); /* Your lace image */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.button-panel {
+    flex: 0 0 180px; /* Fixed width */
+    max-width: 200px;
+    padding: 15px;
+    background: url('strawberrypattern.jpeg') center/cover no-repeat, white;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    height: auto;
+    overflow-y: auto; /* Keep vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.button-panel a {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Aligns text to the left */
+    position: relative;
+    margin: 20px 0;
+    text-decoration: none;
+    background: white;
+    color: #D380A1; /* Darker text by default */
+    padding: 10px 20px; /* Adds padding to shift text right */
+    border-radius: 10px;
+    text-align: center; /* Ensures text alignment */
+    transition: 0.3s;
+    width: 140px;
+    height: 50px;
+}
+
+.button-panel a:hover {
+    background: #ff5e99;
+    color: white;
+}
+
+.button-panel a span {
+    padding-left: 80px; /* Moves text slightly to the right */
+}
+
+/* 🌸 Icon Styling (Bigger & Overlapping Left) */
+.button-panel .icon {
+    width: 120px; /* Adjust size if needed */
+    height: 110px;
+    position: absolute;
+    left: -10px; /* More overlap */
+    top: 50%;
+    transform: translateY(-60%);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.button-panel a:hover .icon {
+    transform: translateY(-60%) scale(1.2); /* Grows on hover */
+}
+
+/* Floating Overlapping Image */
+.indexkuu-image {
+    position: absolute;
+    top: 57.2%;
+    left: 41%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    width: 450px; /* Adjust size */
+    height: auto;
+    z-index: 10; /* Ensures it overlaps */
+    pointer-events: none; /* So it doesn’t block clicks */
+}
+
+
+/* 🌸 Header style */
+header {
+    background: #ffb6c1; /* Soft pastel pink */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* 🎀 Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    background: #ff7eb9;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #ff5e99;
+}
+
+
+/*MUSIC*/
+
+audio {
+    display: none;
+}
+
+
+.custom-player {
+    border: 2px solid #ffb6c1;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #D380A1
+}
+
+/* Play/Pause Button */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+button img {
+    width: 24px; /* Adjust the size of your custom play/pause button */
+    height: 24px;
+}
+
+/* Progress Bar & Volume Controls */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px; /* Adjust size */
+    height: 6px;
+    background: #F8BBD0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Custom Slider Thumb (for Chrome, Edge, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; /* Size of your custom handle */
+    height: 30px;
+    background: url('musicspark.png') no-repeat center;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+/* Custom Slider Thumb (for Firefox) */
+input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: url('musicspark.png') no-repeat center;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Volume control */
+#volumeControl {
+    width: 60px;
+}
+
+/* Current Time & Total Time */
+#currentTime, #totalTime {
+    font-size: 12px;
+    color: #D380A1;
+}
+
+/* Hover effect */
+button:hover, input[type="range"]:hover {
+    transform: scale(1.05);
+    transition: 0.1s ease-in-out;
+}
+
+
+/* Add tiny sparkles inside */
+#progressBar::after {
+    content: url"✨";
+    position: absolute;
+    right: 0;
+    animation: sparkle 1s infinite;
+}
+
+@keyframes sparkle {
+    0% { opacity: 0; transform: translateX(-10px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(10px); }
+}
+
+/* Styling the scrollbar track */
+::-webkit-scrollbar {
+    width: 9px; /* width of the scrollbar */
+    height: 9px; /* height of the horizontal scrollbar */
+}
+
+/* Styling the scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color: #F1D4DF; /* color of the thumb */
+    border-radius: 6px; /* round the corners of the thumb */
+    border: 2px solid #fff; /* space around the thumb */
+}
+
+/* Styling when the scrollbar is hovered */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ffb6c1; /* darker color when hovered */
+}
+
+/* Styling the scrollbar track (background area) */
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* Styling the horizontal scrollbar (if needed) */
+::-webkit-scrollbar-horizontal {
+    height: 12px; /* height of horizontal scrollbar */
+}
+
+/* Styling the vertical scrollbar (if needed) */
+::-webkit-scrollbar-vertical {
+    width: 12px; /* width of vertical scrollbar */
+}
+
+
+#warning-screen {
+    animation: bgAnimation 5s infinite alternate;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999; /* Keeps it above everything */
+}
+
+@keyframes bgAnimation {
+    0% { background-color: #ffebf3; }
+    50% { background-color: #ffddee; }
+    100% { background-color: #ffebf3; }
+}
+
+.warning-content {
+    background: #fff0f8; /* Soft pink background */
+    padding: 30px;
+    border-radius: 20px;
+    border: 10px solid white; /* Simulated lace */
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+}
+
+/* Lace effect using a PNG lace border */
+.warning-content::before {
+    content: "";
+    position: absolute;
+    top: -15px; left: -15px; right: -15px; bottom: -15px;
+    background: url("lace-border.png") no-repeat center;
+    background-size: cover;
+    pointer-events: none; /* So it doesn’t block clicks */
+}
+
+#enter-site {
+    background: linear-gradient(90deg, #ff66b2, #ff99cc);
+    border: 3px solid white;
+    font-family: "Sniglet", cursive; /* Or any cute font */
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#enter-site:hover {
+    transform: scale(1.1);
+}
+
+
+#enter-site:hover {
+    background: #ff3385;
+}
+
+@keyframes floaty {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-20px); opacity: 0.6; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url("sparkle.gif") no-repeat center;
+    background-size: contain;
+    animation: floaty 3s infinite ease-in-out;
+}
+
+/* Random positioning */
+.sparkle:nth-child(1) { top: 10%; left: 20%; animation-duration: 4s; }
+.sparkle:nth-child(2) { top: 50%; left: 80%; animation-duration: 3.5s; }
+.sparkle:nth-child(3) { top: 70%; left: 40%; animation-duration: 5s; }
+
+.custom-cursor {
+    position: absolute;
+    width: 32px; /* Adjust size */
+    height: 32px;
+    background: url('cursor.gif') no-repeat center/contain;
+    pointer-events: none; /* Prevents interference */
+    transform: translate(-50%, -50%); /* Centers on mouse */
+    transition: transform 0.1s ease-out; /* Smooth movement */
+}
