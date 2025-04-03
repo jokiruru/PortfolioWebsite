@@ -8,9 +8,21 @@
 }
 
 body {
+    background: url('bow.gif') repeat;
+    background-size: 100px 100px; /* Adjust based on your pattern size */
+    animation: moveBackground 40s linear infinite;
     margin: 0;
     padding: 0;
     overflow: hidden; /* Prevents page scrolling */
+}
+
+@keyframes moveBackground {
+    100% {
+        background-position: 0 0;
+    }
+    0% {
+        background-position: 100% 100%;
+    }
 }
 
 /* 🎮 Games Container */
@@ -31,12 +43,17 @@ body {
     padding: 0;
     overflow-y: auto; /* Only this panel scrolls */
     margin-left: 10%;
+    -ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.main-panel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
 .cute-header {
     background: url('plaidbackground.jpeg') no-repeat center center;
     background-size: cover;
-    width: 85%; /* Make it span the full width of the .main-panel */
+    width: 84%; /* Make it span the full width of the .main-panel */
     height: 200px;
 
     display: flex;
@@ -44,8 +61,8 @@ body {
     justify-content: center; /* Centers horizontally */
     text-align: center;
 
-    font-size: 40px;
-    color: hotpink;
+    font-size: 50px;
+    color: #a64d79;
     font-weight: bold;
 
     margin: 0 0 5% 8.5%; /* Remove extra margins */
@@ -118,8 +135,8 @@ body {
 }
 .game-card--ridoace {
     background: white;
-    border: 3px solid #9f1fe9;
-    color: #9f1fe9;
+    border: 3px solid #ae3434;
+    color: #d66464;
     font-size: 18px;
     font-family: 'Verdana', sans-serif;
 }
@@ -132,11 +149,11 @@ body {
     margin-bottom: 10px;
 }
 
-/* 🎮 Hover Effect for Game Cards */
 .game-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 15px white, 4px 4px 0px white; /* Glowy + solid effect */
 }
+
 
 /* 🔗 Game Link */
 .game-link {
