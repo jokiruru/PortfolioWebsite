@@ -6,16 +6,14 @@
     <title>jokiruru's website</title>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="/3Dgallery.css" rel="stylesheet" type="text/css" media="all">
+    
 </head>
 <body>
     <div class="container">
-    <!-- 🎨 Left Side (Gallery) -->
     <div class="gallery-box">
         
-        <!-- Left panel (icons change based on navigation selection) -->
         <div class="left-panel environment">
         
-                <!-- Home Icon (Appears in Every Category) -->
             <div class="panel-icon" onclick="resetGallery()">
                 <img src="3D/homeicon.png" alt="Home">
             </div>
@@ -72,7 +70,9 @@
         <div class="right-panel">
             <div id="default-project" class="project-content active">
                 <img src="default-image.png" alt="Default">
-                <p>Welcome to my 3D Gallery!</p>
+                <h2>Welcome to my 3D Gallery!</h2>
+                <p>click on an icon to view project^_^</p>
+                <p>info about each project will show up on the right panel !</p>
             </div>
             
             <!-- ENVIRONMENTS -->
@@ -202,9 +202,11 @@ function switchGallery(category) {
     }
 }
 
-// Function to show the selected project based on the project ID
-function showProject(projectId, projectTitle, projectDesc) {
-    document.querySelector('.right-panel').scrollTop = 0;
+function showProject(projectId, projectTitle, projectDesc, event) {
+    const rightPanel = document.querySelector('.right-panel');
+    if (rightPanel) {
+        rightPanel.scrollTop = 0; 
+    }
 
     // Hide all projects
     document.querySelectorAll('.project-content').forEach(project => project.classList.remove('active'));
@@ -301,363 +303,15 @@ function showDefaultProject() {
         console.log("Default project or right panel not found!");
     }
 }
+
+    document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+    });
+
 </script>
     <script src="cursorbubble.js"></script>
     <script src="textwobble.js"></script>
-
-<style>
-@font-face {
-    font-family: 'Sniglet';
-    src: url('fonts/Sniglet-Regular.ttf') format('truetype');
-}
-
-:root {
-    --border-color: #ffb6c1;
-    --text-color: #D380A1;
-}
-
-body {
-    color: var(--text-color);
-    font-family: 'Sniglet', sans-serif;
-    background: url('lamb.png') repeat;
-    background-size: 164px 99px; /* Adjust based on your pattern size */
-    animation: moveBackground 40s linear infinite;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-@keyframes moveBackground {
-    100% {
-        background-position: 0 0;
-    }
-    0% {
-        background-position: 100% 100%;
-    }
-}
-
-/* 🌸 Layout */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Center horizontally and align the top */
-    height: auto;
-    width: 90vw;
-    margin-left: 160px;
-}
-
-.gallery-box {
-    background: url('panel3.png') no-repeat center/contain;
-    display: flex;
-    width: 70%;
-    max-width: 1500px;
-    height: 90vh;
-    justify-content: space-between; /* Creates space between the left and right panels */
-    padding: 0;
-    margin-right: 20px;
-    margin-top: 20px;
-    
-}
-/* Left panel for thumbnails */
-.left-panel {
-    max-height: 70vh; /* Limits the height to the container's height */
-    width: 15%;
-    display: flex;
-    flex-direction: column; /* Ensures stacking */
-    align-items: center;
-    gap: 20px; /* Adjust spacing between icons */
-    padding: 10px;
-    overflow-y: auto; /* Allows vertical scrolling if needed */
-    overflow-x: hidden; /* Prevesnts horizontal scrolling */
-    margin: 120px 20px 0px 50px;
-}
-
-/* Hide icons by default (only the relevant ones show) */
-.hidden {
-    display: none;
-}
-
-/* .panel-icon */
-.panel-icon {
-    width: 120px; /* Set a fixed square size */
-    height: 120px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Ensure pseudo-elements are positioned correctly */
-    margin: 20px; /* Adjust the spacing between icons */
-}
-
-/* Ensure images inside panel-icon fit correctly */
-.panel-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures images remain square and don't stretch */
-    border-radius: 8px; /* Optional: Add rounded corners */
-}
-
-/* Lace border using pseudo-element */
-.panel-icon::before {
-    content: ''; /* Empty content for pseudo-element */
-    position: absolute;
-    top: -10px; /* Adjust position of lace border */
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background-image: url('iconborder.png'); /* Add your lace border image here */
-    background-size: cover; /* Ensure the lace image covers the border */
-    background-repeat: no-repeat;
-    border-radius: 10px; /* Optional: Add rounded corners to the lace border */
-    z-index: 1; /* Position it behind the icon */
-}
-
-/* Fix hover effect */
-.panel-icon:hover {
-    transform: scale(1.1);
-}
-
-/* Highlight effect when active */
-.panel-icon.active-icon {
-    background-color: rgba(255, 182, 193, 0.6); /* Light pink background */
-    border: 2px solid pink; /* Pink border */
-    border-radius: 8px;
-    transform: scale(1.1); /* Slightly enlarge */
-}
-
-/* Apply the highlight to the image inside */
-.panel-icon.active-icon img {
-    filter: brightness(1.2); /* Make the icon slightly brighter */
-}
-
-
-/* Right panel for displaying selected project */
-.right-panel {
-    width: 80%; /* Adjusted for better balance with left panel */
-    height: 78%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 120px 30px 0px 0px;
-    overflow-y: auto; /* Ensures content doesn't overflow */
-}
-
-.project-content {
-    display: none;
-    text-align: center;
-}
-
-.project-content img {
-    max-width: 100%;
-    height: auto;
-    max-height: 65%;
-    border-radius: 8px;
-}
-
-.project-content.active {
-    display: block;
-}
-
-.project-content p {
-    font-size: 24;
-    color: #D380A1
-}
-
-.gif-text-container {
-    display: flex;
-    align-items: center; /* Align GIF and text vertically */
-    gap: 20px; /* Space between GIF and text */
-    max-width: 80%; /* Prevents it from stretching too wide */
-    margin: auto; /* Center the whole block */
-}
-
-.left-gif {
-    width: 300px; /* Adjust size as needed */
-    height: auto;
-    flex-shrink: 0; /* Prevents GIF from shrinking */
-}
-
-.text-box {
-    max-width: 400px; /* Limit text width */
-    text-align: left;
-}
-
-
-/* 🎀 Right column*/
-.right-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 23vw;
-    height: 90vh;
-    margin: 30px;
-    position: relative;
-    z-index: 0;
-}
-
-/* 🌸 Info Box */
-.info-box {
-    background: url('panel4.png') no-repeat center/contain;
-    height: 50vh;
-    width: 23vw;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px; /* Remove excessive padding */
-}
-
-/* 🌸 Header Styling (Fixed Position Inside Info Box) */
-.info-header {
-    position: absolute;
-    top: 5%; /* Adjust as needed */
-    left: 35%;
-    transform: translateX(-50%); /* Center horizontally */
-    font-size: 30px;
-    color: #D380A1;
-    font-weight: bold;
-    text-align: center;
-    width: 60%;
-    padding: 10px;
-}
-
-/* 🌸 Scrollable Text Box */
-.info-content {
-    width: 90%; /* Wider */
-    height: 60%; /* Shorter */
-    overflow-y: auto; /* Enable vertical scrolling */
-    text-align: center;
-    font-size: 18px;
-    color: #3f2f5e;
-    line-height: 2.4;
-    margin-top: 130px; /* Push down from header */
-    padding: 10px;
-}
-
-/* Navigation panel on the right */
-.nav-panel {
-    background: url('panel5.png') no-repeat center/contain;
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around; /* Ensures vertical centering */
-    padding: 20px;
-    position: relative;
-    z-index: 0;
-}
-
-.btn {  
-  font-family: Arial, Helvetica, sans-serif;  
-  text-transform: uppercase;
-}  
-
-.btn:hover .btn-slide-show-text1 {  
-  margin-left: 65px;
-}  
-
-.btn-layered-3d > ::before {  
-  box-sizing: border-box;
-}  
-
-.btn-layered-3d {  
-  width: 180px;  
-  position: relative;  
-  display: inline-block;  
-  cursor: pointer;  
-  outline: none;  
-  border: 0px;  
-  vertical-align: middle;  
-  text-decoration: none;  
-  font-size: inherit;  
-  font-family: inherit;  
-  font-weight: 600;  
-  text-transform: uppercase;  
-  padding: 1.15em 2em;  
-  border-radius: 0.75em;  
-  transform-style: preserve-3d;  
-  transition: transform 0.15s ease-out, background 0.15s ease-out;
-  margin-bottom: 0.5em;  /* Increases gap between buttons */
-  margin-left: 80px;
-}  
-
-/* Bottom shadow layer */
-.btn-layered-3d::before {  
-  position: absolute;  
-  content: "";  
-  width: 100%;  
-  height: 100%;  
-  inset: 0px;  
-  border-radius: inherit;  
-  transform: translate3d(0px, 0.5em, -1em); /* Made the bottom part smaller */
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
-}  
-
-/* Pressing effect */
-.btn-layered-3d:hover {  
-  transform: translateY(0.25em);
-}  
-
-.btn-layered-3d:hover::before {  
-  transform: translate3d(0px, 0.35em, -1em); /* Keeps the bottom part in place */
-}  
-
-/* Button color */
-.btn-layered-3d--pink {  
-  color: #a95196;
-  background: #f1d5e6;  
-  border: 2px solid #7c1b5e;
-}  
-
-/* Adjusted bottom shadow */
-.btn-layered-3d--pink::before {  
-  background: #a95196;
-  box-shadow: rgb(147, 26, 62) 0px 0px 0px 2px,  
-              rgb(255, 229, 237) 0px 0.4em 0px 0px; /* Made the shadow smaller */
-}  
-
-/* Go back button */
-.swinging-button {
-    position: absolute;
-    top: -30px;
-    left: 40px;
-    z-index: 9999;
-    animation: swing 3s ease-in-out infinite alternate;
-}
-
-.swinging-button img {
-    height: 100vh;
-    transform-origin: top center;
-}
-
-@keyframes swing {
-    0% { transform: rotate(-2deg); }
-    100% { transform: rotate(2deg); }
-}
-
-/* 🌸 Mobile Adjustments */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .gallery-box {
-        width: 90vw;
-        height: 80vh;
-    }
-    .gallery-grid {
-        width: 90%;
-        max-height: 70vh;
-    }
-    .right-column {
-        width: 90vw;
-    }
-}
-</style>
 </body>
 </html>
