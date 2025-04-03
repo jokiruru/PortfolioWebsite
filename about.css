@@ -1,118 +1,390 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 body \{\
-    display: flex;\
-    justify-content: center;\
-    align-items: center;\
-    height: 100vh;\
-    background: url('clouds.gif') repeat-x; /* Cute scrolling clouds */\
-    font-family: 'Sniglet', sans-serif;\
-\}\
-\
-/* \uc0\u55356 \u57200  Layout Container */\
-.container \{\
-    display: flex;\
-    align-items: flex-end; /* Aligns nav to bottom-left */\
-    gap: 20px; /* Space between nav and main panel */\
-    position: relative;\
-\}\
-\
-/* \uc0\u55356 \u57171  Cute nav panel */\
-.nav-panel \{\
-    width: 25%;\
-    height: 400px;\
-    background: rgba(255, 218, 185, 0.9); /* Soft dessert beige */\
-    border-radius: 15px;\
-    padding: 10px;\
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);\
-    display: flex;\
-    flex-wrap: wrap; /* Allows the 2x2 layout */\
-    justify-content: center;\
-    align-items: center;\
-\}\
-\
-/* \uc0\u55356 \u57216  Nav Buttons */\
-.nav-button \{\
-    display: flex;\
-    align-items: center;\
-    justify-content: center;\
-    width: 75px;\
-    height: 50px;\
-    background: white;\
-    border-radius: 10px;\
-    margin: 5px;\
-    cursor: pointer;\
-    font-size: 14px;\
-    transition: 0.3s ease-in-out;\
-\}\
-\
-/* \uc0\u10024  Wider bottom buttons */\
-.nav-button:nth-child(3),\
-.nav-button:nth-child(4) \{\
-    width: 100px;\
-\}\
-\
-/* \uc0\u55356 \u57171  Hover Effect */\
-.nav-button:hover \{\
-    background: #ff9aa2;\
-    color: white;\
-\}\
-\
-/* \uc0\u55356 \u57218  Icon Style */\
-.nav-button img \{\
-    width: 18px;\
-    margin-right: 5px;\
-\}\
-\
-/* \uc0\u55357 \u56540  Main panel */\
-.main-panel \{\
-    width: 45vw;\
-    min-height: 80vh;\
-    background: white;\
-    border-radius: 12px;\
-    padding: 15px;\
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);\
-    text-align: center;\
-    position: relative;\
-    overflow: hidden;\
-\}\
-\
-/* \uc0\u55357 \u56470  Hide content sections initially */\
-.content-section \{\
-    display: none;\
-    opacity: 0;\
-    transform: translateY(10px);\
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\
-\}\
-\
-/* \uc0\u10024  Show active section with animation */\
-.content-section.active \{\
-    display: block;\
-    opacity: 1;\
-    transform: translateY(0);\
-\}\
-\
-/* Go back button */\
-.swinging-button \{\
-    position: absolute;\
-    top: -30px;\
-    left: 40px;\
-    z-index: 9999;\
-    animation: swing 3s ease-in-out infinite alternate;\
-\}\
-\
-.swinging-button img \{\
-    height: 100vh;\
-    transform-origin: top center;\
-\}\
-\
-@keyframes swing \{\
-    0% \{ transform: rotate(-2deg); \}\
-    100% \{ transform: rotate(2deg); \}\
-\}\
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('clouds.png') repeat-x; 
+    font-family: 'Sniglet', sans-serif;
 }
+
+.curtain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('curtain.png') no-repeat top center/cover;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+
+/* 🍰 Layout Container */
+.container {
+    display: flex;
+    align-items: flex-end; 
+    gap: 5px;
+    position: relative;
+    padding: 0 0 0 5%;
+    flex-wrap: wrap;
+}
+
+/* 🍓 nav panel */
+.nav-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('panel9.png') no-repeat center/contain;
+    width: 420px;
+    height: 520px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 0 -100px 20px 0;
+    z-index: 10; 
+}
+
+/* 🎀 Nav Buttons */
+.nav-button {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    background: white;
+    color: #edb9d3;
+    border: 2px solid #edb9d3;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+    overflow: visible;
+}
+
+.nav-button:nth-child(1) { top: 255px; left: 80px; width: 120px;} /* Profile */
+.nav-button:nth-child(2) { top: 255px; right: 70px; width: 120px;} /* Interests */
+.nav-button:nth-child(3) { top: 370px; left: 70px; width: 130px; } /* Links */
+.nav-button:nth-child(4) { top: 370px; right: 60px; width: 130px; } /* Misc */
+
+/* 🍓 Hover Effect */
+.nav-button:hover {
+    background: #edb9d3;
+    color: white;
+}
+
+/* Icon Style */
+.nav-button img {
+    width: 50px; 
+    height: auto; 
+    position: absolute;
+    top: -10px; 
+    left: 25%;
+    transform: translateX(-50px); 
+}
+
+.nav-button.active {
+    background: #edb9d3; 
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px rgba(255, 154, 162, 0.8);
+}
+
+.nav-button span {
+    position: relative;
+    left: 10px;
+}
+
+/* Main panel */
+.main-panel {
+    flex-grow: 1;
+    background: url('panel8.png') no-repeat center/contain;
+    max-width: 1200px;
+    min-width: 350px;
+    width: 50vw;
+    min-height: 85vh;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 0 0 0 -5%;
+    text-align: center;
+    position: relative;
+}
+
+.profile-image {
+    position: absolute;
+    top: 255%; 
+    left: 46%;
+    transform: translate(-50%, -50%); 
+    width: 90%; 
+    max-width: 1000px; 
+    height: auto;
+    pointer-events: none; 
+    z-index: 20; 
+}
+
+.profile-text-box {
+    position: absolute;
+    top: 110%; 
+    left: 70%;
+    transform: translateX(-50%);
+    width: 40%; 
+    max-width: 600px;
+    height: auto; 
+    min-height: 200px;
+    max-height: 300px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    overflow-y: auto; 
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #edb9d3;
+}
+
+
+/* Custom scrollbar (optional) */
+.profile-text-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.profile-text-box::-webkit-scrollbar-thumb {
+    background: #edb9d3;
+    border-radius: 4px;
+}
+
+.profile-text-box::-webkit-scrollbar-track {
+    background: #edb9d3;
+    border-radius: 4px;
+}
+
+.text-box {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: #edb9d3;
+    line-height: 1.5;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto;
+    overflow-y: auto;
+    max-height: 300px; 
+}
+
+/* Hide content sections initially */
+.content-section {
+    position: relative;
+    margin: 40px;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    align-content: center;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* how active section with animation */
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section h1 {
+    font-size: 48px;
+    color: #edb9d3;
+}
+
+/* Lace divider styled as an image */
+.content-lace-divider {
+    width: 80%;
+    height: 55px;
+    padding: 10px 10px 10px 20px;
+    margin: -10px -10px -10px 20px;
+    background-image: url('lacedividers.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Go back button */
+.swinging-button {
+    position: absolute;
+    top: 0px;
+    left: 10%;
+    z-index: 999;
+    animation: swing 3s ease-in-out infinite alternate;
+}
+
+.swinging-button img {
+    height: 90vh;
+    width: auto;
+    transform-origin: top center;
+}
+
+
+/* Override position for about page */
+body.about-page .custom-player {
+    bottom: 20px; 
+    left: 20%; 
+    transform: translateX(-50%); 
+}
+
+
+@keyframes swing {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+.custom-cursor {
+    position: absolute;
+    width: 32px; 
+    height: 32px;
+    background: url('cursor.gif') no-repeat center/contain;
+    pointer-events: none; 
+    transform: translate(-50%, -50%); 
+    transition: transform 0.1s ease-out; 
+}
+
+#musicplayer{
+    
+                position: absolute;
+                top: 13%;
+                left: 22.5%;
+                font-family:'Sniglet', sans-serif; 
+                color: white;
+                background: white; 
+                border: 4px  solid #edb9d3;
+                border-radius: 10px;
+                width: 200px; 
+                padding: 10px;
+                text-align: center; 
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+ 
+            .songtitle, .track-info, .now-playing{
+                padding:5px;
+            }
+ 
+            .controls{
+                display:flex; 
+                flex-direction:column; 
+                gap:10px;
+            }
+ 
+            .buttons{
+                display:flex;
+                justify-content:center;
+                font-size: 20px !important; 
+                width:100%;
+            }
+ 
+            .buttons div{
+                width:33.3%;
+            }
+ 
+            .volume-icon{
+                font-size: 22px !important; 
+            }
+            
+            .control-btn {
+                width: 40px; 
+                height: 40px;
+                cursor: pointer;
+                user-select: none;
+            }
+            
+            .play-control-btn {
+                width: 41px;
+                height: 33px;
+                cursor: pointer;
+                user-select: none;
+            }
+ 
+            .seeking, .volume{
+                display:flex;
+                flex-direction:row;
+                align-items:center;
+                gap:5px;
+            }
+ 
+            .now-playing, .track-info{
+                background-color: #edb9d3; /* background color of top two boxes */
+            }
+ 
+            .now-playing{
+                font-weight:bold;
+            }
+            
+            .marquee-container {
+                padding: 15px;
+                width: 85%;  
+                height: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+                display: flex;
+                align-items: center;
+                line-height: normal;
+            }
+            
+            .marquee-text {
+                display: inline-block;
+                position: absolute;
+                animation: marquee 8s linear infinite;
+            }
+            
+            @keyframes marquee {
+                from {
+                    transform: translateX(100%); 
+                }
+                to {
+                    transform: translateX(-100%); 
+                }
+            }
+ 
+            input[type=range]{
+                -webkit-appearance:none;
+                width:100%;
+                height: 6px;
+                cursor: pointer;
+                position: relative;
+            }
+ 
+            input[type=range]:focus{
+                outline:none; 
+            }
+ 
+            input[type=range]::-webkit-slider-runnable-track{
+                width:100%;
+                height:4px; /* thickness of seeking track */
+                background:#e74492; /* color of seeking track */
+            }
+ 
+            input[type=range]::-webkit-slider-thumb {
+                background: url('icons/musicnote.gif') no-repeat center;
+                background-size: contain;
+                width: 20px; /* Adjust size */
+                height: 20px;
+                cursor: pointer;
+                -webkit-appearance: none;
+                margin-top: -7px; /* Moves it up to align with track */
+            }
+
+            input[type=range]::-moz-range-track{
+                width:100%;
+                height:4px; /* thickness of seeking track */
+                background:#e74492; /* color of seeking track */
+            }
+
+            input[type=range]::-moz-range-thumb {
+                background: url('icons/musicnote.gif') no-repeat center;
+                background-size: contain;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                border: none;
+            }
