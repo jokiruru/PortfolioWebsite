@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Dreamscape</title>
     <link rel="stylesheet" href="style.css">
     
     
@@ -16,11 +16,15 @@
 
     <div id="warning-screen">
         <div class="warning-content">
-            <h1>Welcome to My Site!</h1>
-            <p>This site is optimized for **1920x1080 resolution** and uses **JavaScript**.</p>
-            <p>For the best experience, please view it on a desktop!</p>
-            <button id="enter-site">Enter</button>
+            <div class="warning-box">
+                <p>This site uses javascript and is NOTTTT optimized for mobile.... please view it on a 1920x1080 screen....!!</p>
+                <p>you may need to reload the page if it does not load properly</p>
+                <button id="enter-site">Sleep</button>
+            </div>
         </div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
         <div class="sparkle"></div>
         <div class="sparkle"></div>
         <div class="sparkle"></div>
@@ -64,7 +68,7 @@
             <div class="welcome-content">
                 <h2 class="welcome-text" id="wobble">Welcome dreamers...</h2>
             </div>
-          </div>
+        </div>
         
         <!-- Lace Divider -->
         <div class="lace-divider"></div>
@@ -73,7 +77,6 @@
         <p>Hiii, my name is aira/scara and I'm a game artist/developer with a passion for cute fashion and desserts ^_^ <img src="icons/parfait.gif" alt="ParfaitGif" class="icon"> </p>
         <p>I created this page mainly to use as a portfolio but also to have a space for myself/my work... have a look around!<img src="icons/bearbow.gif" alt="bear" class="icon"></p>
         <p>Big WIP btw Am still working on this whole thing SORRY !<img src="icons/spiral.webp" alt="spiral" class="icon"></p>
-        <p></p>
         <img src="shelfdiv.png" alt="shelfdiv" style="width: 95%"> 
 
         <!-- Guest Chatbook Section -->
@@ -151,20 +154,15 @@ function formatTime(seconds) {
 document.addEventListener("DOMContentLoaded", () => {
     const warningScreen = document.getElementById("warning-screen");
     const enterButton = document.getElementById("enter-site");
-    const audio = document.getElementById("audio");
 
     // Check if the user has already clicked "Enter" during this session
     if (sessionStorage.getItem("hasVisited") === "true") {
-        document.addEventListener("click", () => {
-            audio.play();
-        }, { once: true }); // Ensures it only runs once
         warningScreen.style.display = "none"; // Hide warning screen if already entered during this session
     }
 
     enterButton.addEventListener("click", () => {
         warningScreen.style.display = "none"; // Hide warning page when enter is clicked
         sessionStorage.setItem("hasVisited", "true"); // Store that they've entered in this session
-        audio.play(); // Start music
     });
 });
 
