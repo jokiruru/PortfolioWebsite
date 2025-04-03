@@ -3,48 +3,68 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The web site of jokiruru</title>
+    <title>about this loser</title>
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     <link href="/about.css" rel="stylesheet" type="text/css" media="all">
   </head>
-  <body>
+  <body class="about-page">
+    <div class="curtain-overlay"></div>
     <div class="container">
-        <!-- 🌸 Cute Nav Panel -->
+        <!--Nav Panel -->
         <div class="nav-panel">
             <div class="nav-button" onclick="switchTab('profile')">
-                <img src="profile-icon.png" alt="👤"> Profile
+                <img src="profileicon.png" alt="profile icon"> Profile
             </div>
             <div class="nav-button" onclick="switchTab('interests')">
-                <img src="star-icon.png" alt="⭐"> Interests
+                <img src="interestsicon.png" alt="interest icon"> <span>Interests
             </div>
             <div class="nav-button" onclick="switchTab('links')">
-                <img src="link-icon.png" alt="🔗"> Links
+                <img src="linksicon.png" alt="link icon"> Links
             </div>
             <div class="nav-button" onclick="switchTab('misc')">
-                <img src="heart-icon.png" alt="💖"> Misc
+                <img src="miscicon.png" alt="misc icon"> Misc
             </div>
         </div>
     
         <!-- 📜 Main Panel Content -->
         <div class="main-panel">
             <div id="profile" class="content-section active">
-                <h2>Profile</h2>
-                <p>About me</p>
+            <img src="me.png" class="profile-image">
+                <h1>Profile</h1>
+                <div class="content-lace-divider"></div>
+                <div class="profile-text-box">
+                <p>Hellooo I am aira and I'm a 19 yr old game dev</p>
+                <p>I drew most of the assets on this website and though I made this with the intention of it becoming a portfolio, I also wish to use this site as a personal space.</p>
+                <p>My hobbies are dooming and glooming but I also Love Love Love to learn all kinds of different digital art forms . I admire solo devs and aspire to become one that can excel at various aspects of game development^_^</p>
+                <p>My life revolves around 4 characters and I like to make them as adorable as possible. I love all expressive fashion, though I personally adorn cuter styles.</p>
+                <p>I can speak English and Chinese fluently and am relatively proficient with French</p>
+                </div>
             </div>
             <div id="interests" class="content-section">
-                <h2>Interests</h2>
-                <p>Things I like</p>
+                <h1>Interests</h1>
+                <div class="content-lace-divider"></div>
+                <div class="text-box">
+                  <p>I consume a lot of media but I rarely talk about or engage with them..</p>
+                  <p>I really really like kazuscara.. idontlike genshin i like kazuscara theyre my characters and I like them</p>
+              </div>
             </div>
             <div id="links" class="content-section">
-                <h2>Links</h2>
-                <p>Find me</p>
+                <h1>Where to find me</h1>
+                <div class="content-lace-divider"></div>
+                <br>
+                <div class="text-box">
+                  <p>my username is jokiruru on almost every platform and i primarily post on instagram. kzsclette on twt but im inactive. scary app. i have really bad posting anxiety.</p>
+                </div>
             </div>
             <div id="misc" class="content-section">
-                <h2>Misc</h2>
+                <h1>Misc</h1>
+                <div class="content-lace-divider"></div>
+                <div class="text-box">
                 <p>fun stuff</p>
+                </div>
             </div>
         </div>
     </div>
@@ -52,6 +72,47 @@
     <a href="index.html" class="swinging-button">
         <img src="backbtn.png" alt="Back Home">
     </a>
+    
+    <div id="musicplayer">
+          <div class="now-playing marquee-container">
+            <span class="marquee-text">aira playlist</span>
+          </div>
+            <div class="track-info">
+                <div class="track-name">Song Name</div>
+                <div class="track-artist"></div>
+            </div>
+ 
+            <div class="controls">
+                <div class="seeking">
+                    <div class="current-time">00:00</div>
+ 
+                    <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+ 
+                    <div class="total-duration">0:00</div>
+                </div>
+ 
+                <div class="buttons">
+                    <div class="prev-track" onclick="prevTrack()">
+                        <img src="playprevbtn.png" alt="Previous" class="play-control-btn">
+                    </div>
+                
+                    <div class="playpause-track" onclick="playpauseTrack()">
+                        <img src="playbtn.png" alt="Play" class="control-btn">
+                    </div>
+                
+                    <div class="next-track" onclick="nextTrack()">
+                        <img src="playnextbtn.png" alt="Next" class="play-control-btn">
+                    </div>
+                </div>
+ 
+                <div class="volume">
+                    <div class="volume-icon">&#128362;</div>
+                    <input type="range" min="1" max="100" value="25" class="volume_slider" onchange="setVolume()"> <!-- the default volume value is 25, change this if you want it to be higher or lower (i wouldn't recommend it bc it gets really loud) -->
+                </div>
+            </div>
+ 
+            <audio id="music" src=""></audio>
+    </div>
     
     <script>
     function switchTab(tabId) {
@@ -65,122 +126,199 @@
             document.getElementById(tabId).classList.add('active');
         }, 100); // Delay for smooth fade effect
     }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".nav-button");
+    
+        buttons.forEach((button) => {
+            button.addEventListener("click", function () {
+                // Remove 'active' from all buttons
+                buttons.forEach((btn) => btn.classList.remove("active"));
+    
+                // Add 'active' to the clicked button
+                this.classList.add("active");
+            });
+        });
+    });
 
+// initiate variables
+            let now_playing = document.querySelector(".now-playing");
+            let track_name = document.querySelector(".track-name");
+            let track_artist = document.querySelector(".track-artist");
+ 
+ 
+            let playpause_btn = document.querySelector(".playpause-track");
+            let next_btn = document.querySelector(".next-track");
+            let prev_btn = document.querySelector(".prev-track");
+ 
+            let seek_slider = document.querySelector(".seek_slider");
+            let volume_slider = document.querySelector(".volume_slider");
+            let curr_time = document.querySelector(".current-time");
+            let total_duration = document.querySelector(".total-duration");
+ 
+            let track_index = 0;
+            let isPlaying = false;
+            let updateTimer;
+            
+            document.querySelector('.next-track').innerHTML = '<img src="playnextbtn.png" alt="Next" class="play-control-btn">';
+            document.querySelector('.prev-track').innerHTML = '<img src="playprevbtn.png" alt="Prev" class="play-control-btn">';
+
+ 
+            // create new audio element
+            let curr_track = document.getElementById("music");
+ 
+            //
+            // DEFINE YOUR SONGS HERE!!!!!
+            // MORE THAN FOUR SONGS CAN BE ADDED!!
+            // JUST ADD ANOTHER BRACKET WITH NAME ARTIST AND PATH
+            // CATBOX.MOE IS RECOMMENDED FOR UPLOADING MP3 FILES IF YOU DON'T HAVE NEOCITIES SUPPORTER
+            let track_list = [
+                {
+                    name:"Fantastic Fantasy",
+                    artist:"Coltemonikha",
+                    path:"https://files.catbox.moe/e70yj1.mp3"
+                },
+                {
+                    name:"You are a Worthless Child",
+                    artist:"Kikuo",
+                    path:"https://files.catbox.moe/zkhuni.mp3"
+                },
+                {
+                    name:"My Love, Marshmallow (gentle whisper)",
+                    artist:"Serani Poji",
+                    path:"https://files.catbox.moe/bezjpm.mp3"
+                },
+                {
+                    name: "Arikui Waltz",
+                    artist:"Coltemonikha",
+                    path: "https://files.catbox.moe/fs7jav.mp3",
+                },
+            ];
+            //
+            //
+            //
+            //
+            //
+ 
+            function loadTrack(track_index){
+                clearInterval(updateTimer);
+                resetValues();
+            
+                // Load a new track
+                curr_track.src = track_list[track_index].path;
+                curr_track.load();
+            
+                // Update details of the track
+                track_name.textContent = track_list[track_index].name;
+                track_artist.textContent = track_list[track_index].artist;
+                
+                now_playing.innerHTML = `<span class="marquee-text">airacore (playing ${track_index + 1} of ${track_list.length})</span>`;
+            
+                // Start seek slider update
+                updateTimer = setInterval(seekUpdate, 1000);
+            
+                // Move to next track when current finishes playing 
+                curr_track.addEventListener("ended", nextTrack);
+            }
+
+ 
+            // reset values
+            function resetValues(){
+                curr_time.textContent = "0:00";
+                total_duration.textContent = "0:00";
+                seek_slider.value = 0;
+            }
+ 
+            // load the first track in the tracklist
+            loadTrack(track_index);
+ 
+            // checks if song is playing
+            function playpauseTrack(){
+                if (!isPlaying) playTrack();
+                else pauseTrack();
+            }
+ 
+            // plays track when play button is pressed
+            function playTrack(){
+                curr_track.play();
+                isPlaying = true;
+ 
+                // replace icon with the pause icon
+                playpause_btn.innerHTML = '<img src="pausebtn.png" alt="pause" class="control-btn">';
+            }
+ 
+            // pauses track when pause button is pressed
+            function pauseTrack(){
+                curr_track.pause();
+                isPlaying = false;
+ 
+                playpause_btn.innerHTML = '<img src="playbtn.png" alt="play" class="control-btn">';
+            }
+ 
+            // moves to the next track
+            function nextTrack(){
+                if (track_index < track_list.length - 1)
+                    track_index += 1;
+                else track_index = 0;
+                loadTrack(track_index);
+                playTrack();
+            }
+ 
+            // moves to the previous track
+            function prevTrack(){
+                if (track_index > 0)
+                    track_index -= 1;
+                else track_index = track_list.length;
+                loadTrack(track_index);
+                playTrack();
+            }
+ 
+            // seeker slider
+            function seekTo(){
+                seekto = curr_track.duration * (seek_slider.value / 100);
+                curr_track.currentTime = seekto;
+            }
+ 
+            // volume slider
+            function setVolume(){
+                curr_track.volume = volume_slider.value / 100;
+            }
+ 
+            setVolume();
+ 
+            function seekUpdate(){
+                let seekPosition = 0;
+ 
+                // check if the current track duration is a legible number
+                if (!isNaN(curr_track.duration)){
+                    seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+                    seek_slider.value = seekPosition;
+ 
+                    // calculate the time left and the total duration
+                    let currentMinutes = Math.floor(curr_track.currentTime / 60);
+                    let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+                    let durationMinutes = Math.floor(curr_track.duration / 60);
+                    let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+ 
+                    // adding a zero to the single digit time values
+                    if (currentSeconds < 10){ currentSeconds = "0" + currentSeconds; }
+                    if (durationSeconds < 10){ durationSeconds = "0" + durationSeconds; }
+                    if (currentMinutes < 10){ currentMinutes = currentMinutes; }
+                    if (durationMinutes < 10){ durationMinutes = durationMinutes; }
+ 
+                    curr_time.textContent = currentMinutes + ":" + currentSeconds;
+                    total_duration.textContent = durationMinutes + ":" + durationSeconds;
+                }
+            }
+
+
+    document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+    });
+    
     </script>
-<style>
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('clouds.gif') repeat-x; 
-    font-family: 'Sniglet', sans-serif;
-}
-
-/* 🍰 Layout Container */
-.container {
-    display: flex;
-    align-items: flex-end; /* Aligns nav to bottom-left */
-    gap: 5px; /* Space between nav and main panel */
-    position: relative;
-    padding: 0 0 0 10%;
-}
-
-/* 🍓 Cute nav panel */
-.nav-panel {
-    background: url('panel9.png') no-repeat center/contain;
-    width: 25%;
-    height: 400px;
-    border-radius: 15px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap; /* Allows the 2x2 layout */
-    justify-content: center;
-    align-items: center;
-    Border: 3px solid red;
-}
-
-/* 🎀 Nav Buttons */
-.nav-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    height: 40px;
-    background: white;
-    border-radius: 10px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s ease-in-out;
-}
-
-/* ✨ Wider bottom buttons */
-.nav-button:nth-child(3),
-.nav-button:nth-child(4) {
-    width: 120px;
-}
-
-/* 🍓 Hover Effect */
-.nav-button:hover {
-    background: #ff9aa2;
-    color: white;
-}
-
-/* 🎂 Icon Style */
-.nav-button img {
-    width: 18px;
-    margin-right: 5px;
-}
-
-/* 📜 Main panel */
-.main-panel {
-    background: url('panel8.png') no-repeat center/contain;
-    width: 45vw;
-    min-height: 80vh;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    Border: 3px solid red;
-}
-
-/* 💖 Hide content sections initially */
-.content-section {
-    display: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* ✨ Show active section with animation */
-.content-section.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Go back button */
-.swinging-button {
-    position: absolute;
-    top: -30px;
-    left: 40px;
-    z-index: 9999;
-    animation: swing 3s ease-in-out infinite alternate;
-}
-
-.swinging-button img {
-    height: 100vh;
-    transform-origin: top center;
-}
-
-@keyframes swing {
-    0% { transform: rotate(-2deg); }
-    100% { transform: rotate(2deg); }
-}
-
-</style>
   </body>
 </html>
