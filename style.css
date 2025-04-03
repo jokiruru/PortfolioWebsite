@@ -1,28 +1,28 @@
 @font-face {
-    font-family: 'sniglet'; /* You can name it whatever you want */
-    src: url('fonts/Sniglet-Regular.ttf') format('truetype'), /* Point to your font file */
+    font-family: 'sniglet'; 
+    src: url('fonts/Sniglet-Regular.ttf') format('truetype'), 
 }
 
 body {
     font-family: 'Sniglet', sans-serif;
     height: 100vh;
-    background: url('cloud.png') repeat-x;  /* Tile the cloud image horizontally */
-    background-size: cover;  /* Ensure it covers the width properly */
-    animation: scrollClouds 120s linear infinite;  /* Animates the background */
+    background: url('cloud.png') repeat-x;  
+    background-size: cover;  
+    animation: scrollClouds 120s linear infinite;  
     text-align: center;
     margin: 0;
     padding: 0;
-    cursor: url('cursor.gif') 16 16, auto; /* 16 16 offsets (center the hotspot) */
+    cursor: url('cursor.gif') 16 16, auto; 
 }
 
 /* Animation to scroll the background */
 @keyframes scrollClouds {
-    0% { background-position: 0 0; } /* Starting position */
-    100% { background-position: 100% 0; } /* Ending position (move all the way to the right) */
+    0% { background-position: 0 0; } 
+    100% { background-position: 100% 0; } 
 }
 
 a, button { /* Links & buttons */
-    cursor: url('pointer.png') 16 16, pointer;
+    cursor: url('pointer.gif') 16 16, pointer;
 }
 
 .panel {
@@ -30,64 +30,65 @@ a, button { /* Links & buttons */
     background: url('LacePanel.PNG') center/contain no-repeat;
     width: 100%;
     max-width: 1000px; 
-    min-height: 750px; /* ✅ Change this to min-height instead of fixed height */
+    min-height: 750px; 
     margin: 50px auto;
     padding: 30px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* ✅ Align the panels at the top */
-    flex-wrap: wrap; /* ✅ Allows wrapping if needed */
+    align-items: flex-start; 
+    flex-wrap: wrap; 
 }
 
 
 .flex-container {
     display: flex;
-    gap: 10px; /* Space between panels */
-    justify-content: center; /* ✅ Centers the panels inside */
-    width: 100%; /* ✅ Makes sure it fills the panel */
-    max-width: 1200px; /* ✅ Stops it from getting too wide */
+    gap: 10px; 
+    justify-content: center; 
+    width: 100%; 
+    max-width: 1200px; 
     padding: 10px;
 }
 
 
 /* 🎀 Side-by-side panels */
 .flex-panel {
-    flex: 1; /* Makes sure both panels take up equal space */
-    max-height: 620px; /* ⬅ Stops panels from getting too big */
+    flex: 1; /
+    max-height: 620px; 
     min-height: 400px;
     max-width: 640px;
     min-width: 450px;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
-    border: 2px solid #ffb6c1;
+    border: 2px solid #df7db0;
     align-items: center;
-    position: relative; /* ⬅ Ensures it stays inside */
-    margin-top: 50px; /* ⬅ Moves it down */
-    flex-direction: column; /* Stacks things inside from top to bottom */
+    position: relative; 
+    margin-top: 50px; 
+    flex-direction: column; 
     height: auto;
-    overflow-y: auto; /* 🎀 SCROLLS when content is too long! */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: hidden; 
+    overflow-x: hidden; 
 }
 
 .flex-panel-welcome {
     background: #F1D4DF;
     padding: 5px;
     display: flex;
-    flex-direction: column; /* Stack contents vertically */
-    align-items: center; /* Center items inside */
-    min-height: 80px; /* Ensure it has space */
-    width: 100%; /* Make sure it expands */
-    position: relative; /* Helps with layout */
-    overflow: visible; /* Ensures the bow is not cut off */
+    flex-direction: column; 
+    align-items: center; 
+    min-height: 80px; 
+    width: 100%; 
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    overflow: visible;
 }
 
-/* Align image and text horizontally inside the subpanel */
 .welcome-content {
     display: flex;
     justify-content: flex-start;
     width: 100%;
     gap: 10px;
-    align-items: center; /* Vertically center text and image */
+    align-items: center; 
     position: relative;
 }
 
@@ -103,31 +104,33 @@ a, button { /* Links & buttons */
 /* Hover effect for welcome text */
 .welcome-text:hover {
     color: white;
-    transform: scale(1.1); /* Enlarges the text slightly */
+    transform: scale(1.1); 
 }
 
 .bow-image {
     position: absolute;
     top: 40px;
-    left: 89%; /* Centers it */
-    transform: translateX(-50%); /* Perfect centering */
-    width: 180px; /* Resize as needed */
-    z-index: 10; /* Keeps it above the panel */
+    left: 89%; 
+    transform: translateX(-50%);
+    width: 180px; 
+    z-index: 10; 
 }
 
 .text-content {
+    max-height: 450px; 
     font-size: 24px;
     color: #D380A1;
-    padding-left: 250px; /* Moves text to the right */
-    text-align: left; /* Keeps text aligned to the left */
-    max-width: 80%; /* Prevents text from stretching too wide */
+    padding-left: 250px; 
+    text-align: left; 
+    max-width: 80%; 
+    overflow-y: auto;
 }
 
 .icon {
-    width: 24px; /* Size of the icon */
-    height: auto; /* Keeps aspect ratio of the icon */
-    vertical-align: middle; /* Aligns the icon vertically in line with text */
-    margin-left: 5px; /* Adds space between the icon and the text */
+    width: 24px; 
+    height: auto; 
+    vertical-align: middle; 
+    margin-left: 5px; 
 }
 
 
@@ -135,9 +138,12 @@ a, button { /* Links & buttons */
 .lace-divider {
     width: 100%;
     height: 65px;
-    background-image: url('lacedividers.png'); /* Your lace image */
+    background-image: url('lacedividers.png'); 
     background-size: cover;
     background-repeat: no-repeat;
+    position: sticky;
+    top: 18%;
+    z-index: 10;
 }
 
 .button-panel {
@@ -146,28 +152,28 @@ a, button { /* Links & buttons */
     padding: 15px;
     background: url('strawberrypattern.jpeg') center/cover no-repeat, white;
     border-radius: 15px;
-    border: 2px solid #ffb6c1;
+    border: 2px solid #df7db0;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
     height: auto;
-    overflow-y: auto; /* Keep vertical scrolling */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; 
+    overflow-x: hidden; 
 }
 
 .button-panel a {
     display: flex;
     align-items: center;
-    justify-content: center; /* Aligns text to the left */
+    justify-content: center;
     position: relative;
     margin: 20px 0;
     text-decoration: none;
     background: white;
-    color: #D380A1; /* Darker text by default */
-    padding: 10px 20px; /* Adds padding to shift text right */
+    color: #D380A1; 
+    padding: 10px 20px; 
     border-radius: 10px;
-    text-align: center; /* Ensures text alignment */
+    text-align: center; 
     transition: 0.3s;
     width: 140px;
     height: 50px;
@@ -179,15 +185,15 @@ a, button { /* Links & buttons */
 }
 
 .button-panel a span {
-    padding-left: 80px; /* Moves text slightly to the right */
+    padding-left: 80px; /
 }
 
-/* 🌸 Icon Styling (Bigger & Overlapping Left) */
+/* 🌸 Icon Styling */
 .button-panel .icon {
-    width: 120px; /* Adjust size if needed */
+    width: 120px;
     height: 110px;
     position: absolute;
-    left: -10px; /* More overlap */
+    left: -10px; 
     top: 50%;
     transform: translateY(-60%);
     transition: transform 0.3s ease-in-out;
@@ -195,7 +201,7 @@ a, button { /* Links & buttons */
 }
 
 .button-panel a:hover .icon {
-    transform: translateY(-60%) scale(1.2); /* Grows on hover */
+    transform: translateY(-60%) scale(1.2); 
 }
 
 /* Floating Overlapping Image */
@@ -203,17 +209,17 @@ a, button { /* Links & buttons */
     position: absolute;
     top: 57.2%;
     left: 41%;
-    transform: translate(-50%, -50%); /* Centers the image */
+    transform: translate(-50%, -50%);
     width: 450px; /* Adjust size */
     height: auto;
-    z-index: 10; /* Ensures it overlaps */
-    pointer-events: none; /* So it doesn’t block clicks */
+    z-index: 10;
+    pointer-events: none; 
 }
 
 
 /* 🌸 Header style */
 header {
-    background: #ffb6c1; /* Soft pastel pink */
+    background: #ffb6c1;
     padding: 20px;
     border-radius: 10px;
 }
@@ -262,6 +268,13 @@ audio {
     gap: 6px;
     color: #D380A1
 }
+
+body.about-page custom-player {
+    bottom: 20px;
+    left: 50%;
+    right: 50%;
+}
+
 
 /* Play/Pause Button */
 button {
@@ -377,66 +390,77 @@ button:hover, input[type="range"]:hover {
 }
 
 
+/* 🎀 Fullscreen Warning Screen */
 #warning-screen {
     animation: bgAnimation 5s infinite alternate;
     background-size: cover;
+    background-position: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 9999; /* Keeps it above everything */
+    z-index: 9999;
 }
 
+/* 🎀 Soft BG Color Animation */
 @keyframes bgAnimation {
-    0% { background-color: #ffebf3; }
-    50% { background-color: #ffddee; }
-    100% { background-color: #ffebf3; }
+    0% { background-color: white; }
+    50% { background-color: #f7eef0; }
+    100% { background-color: #efdce1; }
 }
 
+/* 🎀 Warning Content (Background Image) */
 .warning-content {
-    background: #fff0f8; /* Soft pink background */
-    padding: 30px;
-    border-radius: 20px;
-    border: 10px solid white; /* Simulated lace */
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+    background: url("warning.png") no-repeat center;
+    background-size: contain; /* Ensures it stays inside the screen */
+    width: 100vw;
+    height: 100vh;
     text-align: center;
     position: relative;
-    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Lace effect using a PNG lace border */
-.warning-content::before {
-    content: "";
+/* 🎀 Container inside the drawn box */
+.warning-box {
     position: absolute;
-    top: -15px; left: -15px; right: -15px; bottom: -15px;
-    background: url("lace-border.png") no-repeat center;
-    background-size: cover;
-    pointer-events: none; /* So it doesn’t block clicks */
+    width: 400px;  /* Adjust based on the box size in your drawing */
+    height: 200px; /* Adjust to fit nicely */
+    top: 53%; /* Move it into the box area */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 24px;
+    color: #df7db0;
 }
 
+/* 🎀 Enter Site Button */
 #enter-site {
-    background: linear-gradient(90deg, #ff66b2, #ff99cc);
-    border: 3px solid white;
-    font-family: "Sniglet", cursive; /* Or any cute font */
-    padding: 15px 30px;
-    font-size: 20px;
+    background: white;
+    border: 3px solid #df7db0;
+    font-family: "Sniglet", cursive;
+    padding: 10px 25px;
+    font-size: 18px;
     border-radius: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 15px auto;
 }
 
 #enter-site:hover {
     transform: scale(1.1);
-}
-
-
-#enter-site:hover {
     background: #ff3385;
+    border: 3px solid #ff3385;
+    color: white;
 }
+
 
 @keyframes floaty {
     0% { transform: translateY(0); opacity: 1; }
@@ -448,15 +472,19 @@ button:hover, input[type="range"]:hover {
     position: absolute;
     width: 50px;
     height: 50px;
-    background: url("sparkle.gif") no-repeat center;
+    background: url("musicspark.png") no-repeat center;
     background-size: contain;
     animation: floaty 3s infinite ease-in-out;
 }
 
 /* Random positioning */
 .sparkle:nth-child(1) { top: 10%; left: 20%; animation-duration: 4s; }
-.sparkle:nth-child(2) { top: 50%; left: 80%; animation-duration: 3.5s; }
+.sparkle:nth-child(2) { top: 50%; left: 5%; animation-duration: 3.5s; }
 .sparkle:nth-child(3) { top: 70%; left: 40%; animation-duration: 5s; }
+.sparkle:nth-child(4) { top: 20%; left: 20%; animation-duration: 4s; }
+.sparkle:nth-child(5) { top: 30%; left: 90%; animation-duration: 3.5s; }
+.sparkle:nth-child(6) { top: 90%; left: 70%; animation-duration: 5s; }
+.sparkle:nth-child(7) { top: 5%; left: 80%; animation-duration: 7s; }
 
 .custom-cursor {
     position: absolute;
@@ -466,4 +494,11 @@ button:hover, input[type="range"]:hover {
     pointer-events: none; /* Prevents interference */
     transform: translate(-50%, -50%); /* Centers on mouse */
     transition: transform 0.1s ease-out; /* Smooth movement */
+}
+
+::selection {
+/* Change highlight background color */
+background: pink;
+/* Change highlight text color */
+color: #FFFFFF;
 }
