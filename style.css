@@ -208,7 +208,7 @@ a, button { /* Links & buttons */
 .indexkuu-image {
     position: absolute;
     top: 57.2%;
-    left: 41%;
+    left: 31%;
     transform: translate(-50%, -50%);
     width: 450px; /* Adjust size */
     height: auto;
