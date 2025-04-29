@@ -3,6 +3,27 @@
     src: url('fonts/Sniglet-Regular.ttf') format('truetype'), 
 }
 
+/* Language styles */
+.lang-en, .lang-zh {
+  display: none;
+}
+
+/* Show the correct language based on body class */
+body.en .lang-en,
+body.zh .lang-zh {
+  display: block;
+}
+
+/* For inline elements like your navigation */
+.lang-en, .lang-zh {
+  display: inline;
+}
+body.en .lang-zh,
+body.zh .lang-en {
+  display: none;
+}
+
+
 body {
     font-family: 'Sniglet', sans-serif;
     height: 100vh;
@@ -207,8 +228,8 @@ a, button { /* Links & buttons */
 /* Floating Overlapping Image */
 .indexkuu-image {
     position: absolute;
-    top: 60%;
-    left: 15%;
+    top: 57.2%;
+    left: 41%;
     transform: translate(-50%, -50%);
     width: 450px; /* Adjust size */
     height: auto;
@@ -441,8 +462,9 @@ button:hover, input[type="range"]:hover {
     color: #df7db0;
 }
 
-/* 🎀 Enter Site Button */
+/* 🎀 Enter Site Link*/
 #enter-site {
+    display: inline-block; 
     background: white;
     border: 3px solid #df7db0;
     font-family: "Sniglet", cursive;
@@ -450,7 +472,9 @@ button:hover, input[type="range"]:hover {
     font-size: 18px;
     border-radius: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #df7db0;
     margin: 15px auto;
 }
 
@@ -459,6 +483,33 @@ button:hover, input[type="range"]:hover {
     background: #ff3385;
     border: 3px solid #ff3385;
     color: white;
+}
+
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#portfolio-link {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(90deg, #cccccc, #eeeeee);
+    border: 3px solid #fff;
+    font-family: "Sniglet", sans-serif;
+    padding: 10px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px auto;
+}
+
+#portfolio-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.3);
 }
 
 
@@ -498,7 +549,31 @@ button:hover, input[type="range"]:hover {
 
 ::selection {
 /* Change highlight background color */
-background: pink;
+background: #f1e0e7;
 /* Change highlight text color */
 color: #FFFFFF;
+}
+
+/* 🎀 Language Toggle Button */
+#language-toggle {
+    position: absolute;
+    top: -20px;
+    right: 180px;
+    z-index: 9999;
+}
+
+#toggle-language {
+    background: #f7eef0;
+    border: 3px solid #df7db0;
+    font-family: "Sniglet", cursive;
+    padding: 8px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-language:hover {
+    background: #ff3385;
+    border: 3px solid #ff3385;
+    color: white;
 }
