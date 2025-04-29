@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamscape</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="custom-cursor"></div>
+
+    <div id="warning-screen">
+        <div class="warning-content">
+        
+            <div class="warning-box">
+                <!-- English Text -->
+                <div class="lang-en">
+                    <p>This site uses javascript and is NOT optimized for mobile.... please view it on a 1920x1080 screen....!!</p>
+                    <p>You may need to reload the page if it does not load properly.</p>
+                </div>
+                <!-- Chinese Text -->
+                <div class="lang-zh" style="display: none;">
+                    <p>此网站使用了 JavaScript，并未针对手机优化....请在 1920x1080 屏幕上查看....!!</p>
+                    <p>如果页面没有正确加载，您可能需要重新加载页面。</p>
+                </div>
+
+                <div class="button-row">
+                  <!-- Link to main site styled as a button -->
+                  <a href="main.html" id="enter-site" class="button-link lang-en">
+                      Enter Site
+                  </a>
+                  <a href="portfolio.html" id="portfolio-link" class="lang-en">
+                      Simple Portfolio
+                  </a>
+                  
+                  <!-- Chinese version of the buttons (same style, just different text) -->
+                  <a href="main.html" id="enter-site" class="button-link lang-zh" style="display: none;">
+                      进入网站
+                  </a>
+                  <a href="portfolio.html" id="portfolio-link" class="lang-zh" style="display: none;">
+                      简单作品集
+                  </a>
+              </div>  
+            <!-- Language Toggle Button -->
+            <div id="language-toggle">
+                <button id="toggle-language">中文</button>
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+        <div class="sparkle"></div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("toggle-language");
+            const englishTexts = document.querySelectorAll(".lang-en");
+            const chineseTexts = document.querySelectorAll(".lang-zh");
+        
+            function showLanguage(lang) {
+                console.log("Changing language to:", lang); // Debug log
+                if (lang === "zh") {
+                    englishTexts.forEach(el => el.style.display = "none");
+                    chineseTexts.forEach(el => el.style.display = "block");
+                    toggleButton.textContent = "English";
+                } else {
+                    englishTexts.forEach(el => el.style.display = "block");
+                    chineseTexts.forEach(el => el.style.display = "none");
+                    toggleButton.textContent = "中文";
+                }
+            }
+        
+            // Load saved language choice
+            let savedLang = localStorage.getItem("preferredLanguage") || "en";
+            showLanguage(savedLang);
+        
+            toggleButton.addEventListener("click", () => {
+                let currentLang = (localStorage.getItem("preferredLanguage") === "zh") ? "en" : "zh";
+                console.log("Current language before change:", currentLang); // Debug log
+                showLanguage(currentLang);
+                localStorage.setItem("preferredLanguage", currentLang);
+            });
+        });
+    </script>
+
+
+  </body>
+</html>
