@@ -137,7 +137,7 @@ body {
     min-height: 200px;
     max-height: 300px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0);
     border-radius: 10px;
     overflow-y: auto; 
     font-size: 1.5rem;
@@ -388,3 +388,69 @@ body.about-page .custom-player {
                 cursor: pointer;
                 border: none;
             }
+            
+.social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #edb9d3;
+    background-color: #fff0f5;
+    color: #d14d82;
+}
+
+.social-btn:hover {
+    background-color: #edb9d3;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px #edb9d3;
+}
+
+.social-btn:active {
+    transform: translateY(1px);
+}
+
+/* Optional: Add little heart icons */
+.social-btn::before {
+    content: '❤';
+    margin-right: 8px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Language toggle - hide inactive language */
+.social-btn .lang-en, 
+.social-btn .lang-zh {
+    display: none;
+}
+
+.social-btn .lang-en.lang-active,
+.social-btn .lang-zh.lang-active {
+    display: inline;
+}
+
+/* Cute wobbly animation on hover */
+.social-btn:hover {
+    animation: wobble 0.5s ease;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: translateY(-3px) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(2deg); }
+    75% { transform: translateY(-3px) rotate(-2deg); }
+}
