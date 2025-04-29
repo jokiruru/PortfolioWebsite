@@ -1,0 +1,259 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fffafc;
+  color: #333;
+  font-size: 20px;
+}
+
+header {
+  background: #ffeef6;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  background: #ffeef6;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block; /* so the background hugs the text */
+  color: #333;
+}
+
+
+h3 {
+  font-size: 1.4em;
+  color: #ffb6c1; 
+  margin-top: 20px;
+}
+
+.modal-content h3 {
+  font-size: 2em;
+  color: #333;
+}
+
+
+.modal-content h4 {
+  font-size: 1.1em;
+  color: #555;
+  font-style: italic;
+}
+
+
+.lang-subtitle {
+  font-size: 1.1em;
+  opacity: 0.7;
+}
+
+.lang-toggle {
+  margin-top: 10px;
+}
+
+button {
+  background: #ffb6c1;
+  border: none;
+  padding: 6px 12px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #ffa3b4;
+}
+
+section {
+  padding: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center the cards horizontally */
+  gap: 30px; /* space between them */
+  margin-top: 20px;
+}
+
+
+.project-card {
+  border: 1px solid #eee;
+  padding: 16px;
+  width: 200px; 
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 12px;
+  border-color: pink;
+  transition: transform 0.2s;
+}
+
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+/* Hide by language */
+body.en .zh,
+body.zh .en {
+  display: none;
+}
+
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  padding: 80px 0 80px 0;
+  max-height: calc(100vh - 160px);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px; /* was 600px */
+  font-size: 1.1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center inner content horizontally */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #333;
+}
+
+footer {
+  background: #ffeef6;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+
+/* Video Popup Specific Styles */
+.video-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gallery-video {
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.gallery-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-video .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 182, 193, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-video .play-button::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 30px solid white;
+    margin-left: 5px;
+}
+
+.gallery-video:hover .play-button {
+    background-color: rgba(255, 105, 180, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+}
+.video-embed-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+a:link {
+  color: pink; /* unvisited link */
+}
+
+a:visited {
+  color: black; /* visited link */
+}
+
+a:hover {
+  color: hotpink; /* when mouse hovers over */
+}
+
+a:active {
+  color: deeppink; /* when clicking */
+}
+
