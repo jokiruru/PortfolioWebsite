@@ -252,7 +252,7 @@ body {
 
 /* Cute Video Thumbnails */
 .gallery-video {
-    width: 400px; /* Set a fixed width for thumbnails */
+    max-width: 400px; /* Set a fixed width for thumbnails */
     height: 300px; /* Set height for square aspect ratio */
     position: relative; /* Needed for the play button */
     overflow: hidden;
@@ -333,6 +333,15 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+.video-embed {
+    display: none;
+}
+
+body.en .video-embed.lang-en,
+body.zh .video-embed.lang-zh {
+    display: block;
+}
+
 /* Style for the description box */
 .video-description-box {
     flex-grow: 1; /* Make sure the description box takes up remaining space */
@@ -340,11 +349,25 @@ body {
 }
 
 .gallery-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
     font-size: 24px;
     font-weight: bold;
     color: #D380A1; /* Cute pink! */
     margin-bottom: 5px; /* Space before description */
     text-align: left;
+}
+
+/* For language spans */
+.gallery-header span {
+    display: inline; /* Keep them inline with icons */
+}
+
+/* For video descriptions */
+.video-description-box p {
+    margin: 5px 0; /* Add some spacing */
 }
 
 .gallery-description {
