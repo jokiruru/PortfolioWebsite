@@ -6,15 +6,15 @@
     <title>Games</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="games.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/games.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
     <div class="games-container">
-      <!-- 📜 Main Panel (Displays dynamic content) -->
+      <!-- Main Panel (Displays dynamic content) -->
       <div class="main-panel"></div>
 
-      <!-- 📌 Right Panel (Navigation & Info Box) -->
+      <!-- Right Panel (Navigation & Info Box) -->
       <div class="right-panel">
         <div class="nav-box">
           <button class="btn fill-center fill-center--pink" id="games-btn" onclick="showSection('games')">Games</button>
@@ -22,95 +22,154 @@
           <button class="btn fill-center fill-center--pink" id="devlog-btn" onclick="showSection('devlog')">Devlog</button>
         </div>
         <div class="info-box">
-          <p>My page with games and basically coding practices ^_^ I use both Unreal and Unity. Play buttons will link to each project's itch.io pages once I set them up ahh.....</p>
+            <p id="info-text">My page with games and basically coding practices ^_^ I use both Unreal and Unity. Play buttons will link to each project's itch.io pages once I set them up ahh.....</p>
         </div>
       </div>
     </div>
 
-    <a href="index.html" class="swinging-button">
+    <a href="main.html" class="swinging-button">
         <img src="backbtn.png" alt="Back Home">
     </a>
 
-    <script>
-      function showSection(category) {
+<script>
+    function showSection(category) {
         const mainPanel = document.querySelector('.main-panel');
-        
-        if (category === 'games') {
-          mainPanel.innerHTML = `
-            <h1 class="cute-header">Games</h1>
-            <div class="game-cards-container">
-              <div class="game-card game-card--pink">
-                <img src="games/eternalconfection.png" alt="Eternal Confection" class="game-image">
-                <h2>Eternal Confection</h2>
-                <p>A twine game that I made during spring quarter of 2024 for my intro to game development class! </p>
-                <p>This was actually my introduction to HTML and CSS prior to making this website. It was very fun and I really really enjoyed making it<img src="icons/melody27.gif" alt="melody" class="icon"> Though the pacing and writing are unfortunately a bit rushed due to time restraints...<img src="icons/sadcat.webp" alt="sadcat" class="icon"></p>
-                <a href="https://jokiruru.itch.io/eternal-confections" class="game-link">Play Now</a>
-              </div>
-              
-              <div class="game-card game-card--blue">
-                <img src="games/stars.png" alt="Stars" class="game-image">
-                <h2>Stars</h2>
-                <p>Game made in unity for my winter 2025 advanced programming class. I collaborated with my friend to create this 2.5D puzzle platformer! It also has a storyline, though again, the writing is rushed since our focus was on programming. We both contributed to artworks, 3D models, and programming.</p>
-                <a href="https://jokiruru.itch.io/stars" class="game-link">Play Now</a>
-              </div>
-            
-            <div class="game-card game-card--bubble">
-                <img src="games/livinginabubble.png" alt="Gamejam" class="game-image">
-                <h2>Living in a Bubble</h2>
-                <p>Game made in unity for Global Game Jam 2025 for the theme bubbles. It's a rhythm game with animations/music made in 48 hours ! I worked on the animations for this project.</p>
-                <a href="https://jokiruru.itch.io/living-in-a-bubble" class="game-link">Play Now</a>
-              </div>
+        const isChinese = document.body.classList.contains('zh');
 
-            <div class="game-card game-card--pink">
-                <img src="games/rollaball.gif" alt="Roll a Ball" class="game-image">
-                <h2>Roll a Ball</h2>
-                <p>A roll a ball game I made for an exercise in Game tech. It features 3 levels!</p>
-                <a href="https://kzsclette.itch.io/roll-a-ball" class="game-link">Play Now</a>
-            </div>
-              
-            <div class="game-card game-card--ridoace">
-                <img src="games/ridoace.png" alt="Ridoace" class="game-image">
-                <h2>Ridoace RPGMaker</h2>
-                <p>My first introduction to making games. I was really into RPGmaker games and wanted to try making one on my own. I had a two-week free trial for RPGMaker MZ and made this in 10 days during some of free time in my senior year of high school ^_^... ahh again not-awesome writing but it was fun.</p>
-                <a href="https://jokiruru.itch.io/ridoace" class="game-link">Play Now</a>
-            </div>
-          </div>
-          `;
+        if (category === 'games') {
+            mainPanel.innerHTML = `
+                <h1 class="cute-header">${isChinese ? "游戏" : "Games"}</h1>
+                <div class="game-cards-container">
+                    <div class="game-card game-card--pink">
+                        <img src="games/eternalconfection.png" alt="Eternal Confection" class="game-image">
+                        <h2>${isChinese ? "永恒的甜点" : "Eternal Confection"}</h2>
+                        <p>${isChinese ? "我在2024年春季学期的游戏开发入门课程中制作的twine文字游戏！" : "A twine game that I made during spring quarter of 2024 for my intro to game development class!"}</p>
+                        <p>${isChinese ? "实际上，这是我在制作这个网站之前第一次接触HTML和CSS。制作过程非常有趣，我真的非常享受<img src='icons/melody27.gif' alt='melody' class='icon'>不过由于时间紧迫，节奏和写作略显仓促...<img src='icons/sadcat.webp' alt='sadcat' class='icon'>" : "This was actually my introduction to HTML and CSS prior to making this website. It was very fun and I really really enjoyed making it<img src='icons/melody27.gif' alt='melody' class='icon'> Though the pacing and writing are unfortunately a bit rushed due to time restraints...<img src='icons/sadcat.webp' alt='sadcat' class='icon'>"}
+                        </p>
+                        <a href="https://jokiruru.itch.io/eternal-confections" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+
+                    <div class="game-card game-card--blue">
+                        <img src="games/stars.png" alt="Stars" class="game-image">
+                        <h2>${isChinese ? "星星" : "Stars"}</h2>
+                        <p>${isChinese ? "为我2025年冬季高级编程课程制作的Unity游戏。我与朋友合作开发了这个2.5D解谜平台游戏！虽然故事线有些仓促，但我们的重点是编程。我们共同参与了美术、3D建模和编程。" : "Game made in unity for my winter 2025 advanced programming class. I collaborated with my friend to create this 2.5D puzzle platformer! It also has a storyline, though again, the writing is rushed since our focus was on programming. We both contributed to artworks, 3D models, and programming."}</p>
+                        <a href="https://jokiruru.itch.io/stars" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+
+                    <div class="game-card game-card--bubble">
+                        <img src="games/livinginabubble.png" alt="Gamejam" class="game-image">
+                        <h2>${isChinese ? "泡泡生活" : "Living in a Bubble"}</h2>
+                        <p>${isChinese ? "在2025年全球游戏创作节（Global Game Jam）中为主题泡泡制作的Unity游戏。48小时内完成的节奏游戏，包括动画和音乐制作！我负责了项目的动画制作。" : "Game made in unity for Global Game Jam 2025 for the theme bubbles. It's a rhythm game with animations/music made in 48 hours! I worked on the animations for this project."}</p>
+                        <a href="https://jokiruru.itch.io/living-in-a-bubble" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+                    
+                    <div class="game-card game-card--pink">
+                        <img src="games/rollaball.gif" alt="rollaball" class="game-image">
+                        <h2>${isChinese ? "滚球游戏" : "Roll a Ball"}</h2>
+                        <p>${isChinese ? "这是我在游戏技术课上用虚幻引擎5制作的一个3关滚球游戏！所有资产也是我自己做的。" : "A 3 level roll a ball game made in Unreal Engine 5 for my game tech class! I made all the assets as well."}</p>
+                        <a href="https://kzsclette.itch.io/roll-a-ball" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+
+                    <div class="game-card game-card--ridoace">
+                        <img src="games/ridoace.png" alt="Ridoace" class="game-image">
+                        <h2>${isChinese ? "Ridoace RPGMaker" : "Ridoace RPGMaker"}</h2>
+                        <p>${isChinese ? "我第一次尝试制作游戏。高中最后一年时，我在两周的RPGMaker MZ免费试用期间，在空闲时间花了10天制作了这个游戏^_^ 虽然写作还不够好，但制作过程很有趣。" : "My first introduction to making games. I was really into RPGmaker games and wanted to try making one on my own. I had a two-week free trial for RPGMaker MZ and made this in 10 days during some of free time in my senior year of high school ^_^... ahh again not-awesome writing but it was fun."}</p>
+                        <a href="https://jokiruru.itch.io/ridoace" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+                </div>
+            `;
         } else if (category === 'exercises') {
-          mainPanel.innerHTML = `
-            <h1 class="cute-header">Exercises</h1>
-            <div class="game-cards-container">
-              <div class="game-card game-card--pink">
-                <img src="games/diceroller.png" alt="Dice Roller" class="game-image">
-                <h2>Dice Roller</h2>
-                <p>A programming exercise.</p>
-                <a href="https://jokiruru.itch.io/dice-roller" class="game-link">Play Now</a>
-              </div>
-              
-              <div class="game-card game-card--pink">
-                <img src="games/MarbleMaze.gif" alt="Marble Maze" class="game-image">
-                <h2>Marble Maze</h2>
-                <p>marble maze from exercise in game tech</p>
-                <a href="https://kzsclette.itch.io/marble-maze" class="game-link">Play Now</a>
-              </div>
-            </div>
-          `;
+            mainPanel.innerHTML = `
+                <h1 class="cute-header">${isChinese ? "练习项目" : "Exercises"}</h1>
+                <div class="game-cards-container">
+                    <div class="game-card game-card--pink">
+                        <img src="games/dicerollerexercise.png" alt="Dice Roller" class="game-image">
+                        <h2>${isChinese ? "骰子投掷器" : "Dice Roller"}</h2>
+                        <p>${isChinese ? "一个编程练习项目。" : "A programming exercise."}</p>
+                        <a href="https://kzsclette.itch.io/dice-roller" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+
+                    <div class="game-card game-card--pink">
+                        <img src="games/MarbleMaze.gif" alt="Marble Maze" class="game-image">
+                        <h2>${isChinese ? "弹珠迷宫" : "Marble Maze"}</h2>
+                        <p>${isChinese ? "游戏技术课程中的练习项目。" : "marble maze from exercise in game tech"}</p>
+                        <a href="https://jokiruru.itch.io/marble-maze" class="game-link">${isChinese ? "开始游戏" : "Play Now"}</a>
+                    </div>
+                </div>
+            `;
         } else if (category === 'devlog') {
-          mainPanel.innerHTML = `
-            <h1 class="cute-header">Devlog</h1>
-            <p>Devlog entries!</p>
-          `;
+            mainPanel.innerHTML = `
+                <h1 class="cute-header">${isChinese ? "开发日志" : "Devlog"}</h1>
+                <p>${isChinese ? "开发日志记录！" : "Devlog entries!"}</p>
+            `;
         }
 
         document.querySelectorAll('.nav-box .btn').forEach(button => {
-          button.classList.remove('active');
+            button.classList.remove('active');
         });
 
         const activeButton = document.getElementById(category + '-btn');
         activeButton.classList.add('active');
-      }
+    }
 
-      window.onload = () => showSection('games');
+    window.onload = () => showSection('games');
+
+    function translateStaticText() {
+      const isChinese = document.body.classList.contains('zh');
+
+      document.getElementById('games-btn').innerText = isChinese ? "游戏" : "Games";
+      document.getElementById('exercises-btn').innerText = isChinese ? "练习项目" : "Exercises";
+      document.getElementById('devlog-btn').innerText = isChinese ? "开发日志" : "Devlog";
+
+      document.getElementById('info-text').innerText = isChinese 
+        ? "我的页面，展示游戏和编程练习 ^_^ 我使用Unreal和Unity开发。游戏按钮将在我完成设置后链接到各自的itch.io页面，啊啊啊....." 
+        : "My page with games and basically coding practices ^_^ I use both Unreal and Unity. Play buttons will link to each project's itch.io pages once I set them up ahh.....";
+
+      document.getElementById('back-home-img').alt = isChinese ? "返回主页" : "Back Home";
+    }
+
+    window.onload = () => {
+      showSection('games');
+      translateStaticText();
+    };
+      
+// Language management
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("toggle-language");
+    
+    // Set initial language
+    const savedLang = localStorage.getItem("preferredLanguage") || "en";
+    document.body.classList.add(savedLang); // Add language class to body
+    toggleButton.textContent = savedLang === "zh" ? "English" : "中文";
+    
+    // Initialize gallery with correct language
+    const defaultButton = document.querySelector('.nav-box button');
+    if (defaultButton) {
+        defaultButton.classList.add('selected');
+        const initialCategory = defaultButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+        showGallery(initialCategory);
+        updateInfoText(initialCategory);
+    }
+
+    // Language toggle handler
+    toggleButton.addEventListener("click", () => {
+        const currentLang = document.body.classList.contains("zh") ? "zh" : "en";
+        const newLang = currentLang === "en" ? "zh" : "en";
+        
+        // Update language state
+        document.body.classList.remove(currentLang);
+        document.body.classList.add(newLang);
+        localStorage.setItem("preferredLanguage", newLang);
+        toggleButton.textContent = newLang === "zh" ? "English" : "中文";
+        
+        // Refresh current content
+        const selectedButton = document.querySelector('.nav-box button.selected');
+        if (selectedButton) {
+            const category = selectedButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+            updateInfoText(category);
+        }
+    });
+});
     </script>
   </body>
 </html>
