@@ -4,71 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about this loser</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="about.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/about.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body class="about-page">
     <div class="curtain-overlay"></div>
     <div class="container">
-        <!--Nav Panel -->
-        <div class="nav-panel">
-            <div class="nav-button" onclick="switchTab('profile')">
-                <img src="profileicon.png" alt="profile icon"> Profile
-            </div>
-            <div class="nav-button" onclick="switchTab('interests')">
-                <img src="interestsicon.png" alt="interest icon"> <span>Interests
-            </div>
-            <div class="nav-button" onclick="switchTab('links')">
-                <img src="linksicon.png" alt="link icon"> Links
-            </div>
-            <div class="nav-button" onclick="switchTab('misc')">
-                <img src="miscicon.png" alt="misc icon"> Misc
-            </div>
+<!-- Nav Panel -->
+<div class="nav-panel">
+    <div class="nav-button" onclick="switchTab('profile')">
+        <img src="profileicon.png" alt="profile icon">
+        <span class="lang-en">Profile</span><span class="lang-zh">个人资料</span>
+    </div>
+    <div class="nav-button" onclick="switchTab('interests')">
+        <img src="interestsicon.png" alt="interest icon">
+        <span class="lang-en">Interests</span><span class="lang-zh">兴趣爱好</span>
+    </div>
+    <div class="nav-button" onclick="switchTab('links')">
+        <img src="linksicon.png" alt="link icon">
+        <span class="lang-en">Links</span><span class="lang-zh">链接</span>
+    </div>
+    <div class="nav-button" onclick="switchTab('misc')">
+        <img src="miscicon.png" alt="misc icon">
+        <span class="lang-en">Misc</span><span class="lang-zh">杂项</span>
+    </div>
+</div>
+
+<!-- Main Panel Content -->
+<div class="main-panel">
+    <div id="profile" class="content-section active">
+        <img src="me.png" class="profile-image">
+        <h1><span class="lang-en">Profile</span><span class="lang-zh">个人资料</span></h1>
+        <div class="content-lace-divider"></div>
+        <div class="profile-text-box">
+            <p><span class="lang-en">Hellooo I am aira and I'm a 20 yr old game dev</span><span class="lang-zh">你好呀，我是aira，今年20岁，是一名游戏开发者。</span></p>
+            <p><span class="lang-en">I drew most of the assets on this website and though I made this with the intention of it becoming a portfolio, I also wish to use this site as a personal space.</span><span class="lang-zh">我绘制了本网站的大部分素材，虽然最初打算作为作品集，但也希望它是一个属于自己的小空间。</span></p>
+            <p><span class="lang-en">My hobbies are glooming and frolicking but I also Love Love Love to learn all kinds of different digital art forms. I admire solo devs and aspire to become one that can excel at various aspects of game development ^_^</span><span class="lang-zh">我的爱好是忧郁和嬉戏，但我也超级喜欢学习各种数码艺术形式。我很崇拜独立开发者，希望自己也能成为一个在各方面都能做得很好的solo dev ^_^</span></p>
+            <p><span class="lang-en">My life revolves around 4 characters and I like to make them as adorable as possible. I love all expressive fashion, though I personally adorn cuter styles.</span><span class="lang-zh">我的生活围绕着四个角色转，且我喜欢把他们打扮得可爱极了。我喜欢所有有表现力的时尚风格，但我自己更偏爱可爱的穿搭风格。</span></p>
+            <p><span class="lang-en">I can speak English and Chinese fluently and am relatively proficient with French</span><span class="lang-zh">我能流利地使用英语和中文，也能基本使用法语交流。</span></p>
         </div>
-    
-        <!-- 📜 Main Panel Content -->
-        <div class="main-panel">
-            <div id="profile" class="content-section active">
-            <img src="me.png" class="profile-image">
-                <h1>Profile</h1>
-                <div class="content-lace-divider"></div>
-                <div class="profile-text-box">
-                <p>Hellooo I am aira and I'm a 19 yr old game dev</p>
-                <p>I drew most of the assets on this website and though I made this with the intention of it becoming a portfolio, I also wish to use this site as a personal space.</p>
-                <p>My hobbies are dooming and glooming but I also Love Love Love to learn all kinds of different digital art forms . I admire solo devs and aspire to become one that can excel at various aspects of game development^_^</p>
-                <p>My life revolves around 4 characters and I like to make them as adorable as possible. I love all expressive fashion, though I personally adorn cuter styles.</p>
-                <p>I can speak English and Chinese fluently and am relatively proficient with French</p>
-                </div>
-            </div>
-            <div id="interests" class="content-section">
-                <h1>Interests</h1>
-                <div class="content-lace-divider"></div>
-                <div class="text-box">
-                  <p>I consume a lot of media but I rarely talk about or engage with them..</p>
-                  <p>I really really like kazuscara.. idontlike genshin i like kazuscara theyre my characters and I like them</p>
-              </div>
-            </div>
-            <div id="links" class="content-section">
-                <h1>Where to find me</h1>
-                <div class="content-lace-divider"></div>
-                <br>
-                <div class="text-box">
-                  <p>my username is jokiruru on almost every platform and i primarily post on instagram. kzsclette on twt but im inactive. scary app. i have really bad posting anxiety.</p>
-                </div>
-            </div>
-            <div id="misc" class="content-section">
-                <h1>Misc</h1>
-                <div class="content-lace-divider"></div>
-                <div class="text-box">
-                <p>fun stuff</p>
-                </div>
+    </div>
+
+    <div id="interests" class="content-section">
+        <h1><span class="lang-en">Interests</span><span class="lang-zh">兴趣爱好</span></h1>
+        <div class="content-lace-divider"></div>
+        <div class="text-box">
+            <p><span class="lang-en">I consume a lot of media but I rarely talk about or engage with them... I love anime, manga, and various TV shows.</span><span class="lang-zh">我接触了很多媒体作品，但很少讨论或参与其中……我喜欢动漫、漫画和各种电视剧。</span></p>
+            <p><span class="lang-en">I have four characters I am absolutely obsessed with, and they're not too difficult to guess. I will make dedicated pages for them here once I have the time!!!</span><span class="lang-zh">我超级超级喜欢四个角色，很容易猜到是谁！我会在有时间的时候为他们做专属页面的！！</span></p>
+        </div>
+    </div>
+
+    <div id="links" class="content-section">
+        <h1><span class="lang-en">Where to find me</span><span class="lang-zh">在哪里找到我</span></h1>
+        <div class="content-lace-divider"></div>
+        <br>
+        <div class="text-box">
+            <p><span class="lang-en">My username is jokiruru on almost every platform and I primarily post on Instagram. kzsclette on Twitter but I'm inactive. scary app. I have really bad posting anxiety.</span><span class="lang-zh">我在几乎所有平台上的用户名都是jokiruru，主要活跃在Instagram。推特上叫kzsclette，但基本不活跃了。那个app太吓人了，我有严重的发帖焦虑。</span></p>
+
+            <!-- Cute Social Media Links -->
+            <div class="social-links">
+                <a href="https://instagram.com/jokiruru" target="_blank" class="social-btn">
+                    <span class="lang-en">Instagram</span><span class="lang-zh">Instagram</span>
+                </a>
+                <a href="https://jokiruru.artstation.com/" target="_blank" class="social-btn">
+                    <span class="lang-en">ArtStation</span><span class="lang-zh">ArtStation</span>
+                </a>
+                <a href="https://jokiruru.itch.io/" target="_blank" class="social-btn">
+                    <span class="lang-en">itch.io</span><span class="lang-zh">itch.io</span>
+                </a>
             </div>
         </div>
     </div>
-    
+
+    <div id="misc" class="content-section">
+        <h1><span class="lang-en">Misc</span><span class="lang-zh">杂项</span></h1>
+        <div class="content-lace-divider"></div>
+        <div class="text-box">
+            <p><span class="lang-en">I will put fun stuff here when I get the time..!!!!</span><span class="lang-zh">有时间的话我会在这里放一些有趣的小东西..!!!!</span></p>
+        </div>
+    </div>
+</div>
+</div>
+
     <a href="index.html" class="swinging-button">
         <img src="backbtn.png" alt="Back Home">
     </a>
@@ -107,7 +124,7 @@
  
                 <div class="volume">
                     <div class="volume-icon">&#128362;</div>
-                    <input type="range" min="1" max="100" value="25" class="volume_slider" onchange="setVolume()"> <!-- the default volume value is 25, change this if you want it to be higher or lower (i wouldn't recommend it bc it gets really loud) -->
+                    <input type="range" min="1" max="100" value="25" class="volume_slider" onchange="setVolume()"> 
                 </div>
             </div>
  
@@ -318,7 +335,45 @@
         cursor.style.top = `${e.pageY}px`;
     });
     
+    // Language management
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("toggle-language");
+    
+    // Set initial language
+    const savedLang = localStorage.getItem("preferredLanguage") || "en";
+    document.body.classList.add(savedLang); // Add language class to body
+    toggleButton.textContent = savedLang === "zh" ? "English" : "中文";
+    
+    // Initialize gallery with correct language
+    const defaultButton = document.querySelector('.nav-box button');
+    if (defaultButton) {
+        defaultButton.classList.add('selected');
+        const initialCategory = defaultButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+        showGallery(initialCategory);
+        updateInfoText(initialCategory);
+    }
+
+    // Language toggle handler
+    toggleButton.addEventListener("click", () => {
+        const currentLang = document.body.classList.contains("zh") ? "zh" : "en";
+        const newLang = currentLang === "en" ? "zh" : "en";
+        
+        // Update language state
+        document.body.classList.remove(currentLang);
+        document.body.classList.add(newLang);
+        localStorage.setItem("preferredLanguage", newLang);
+        toggleButton.textContent = newLang === "zh" ? "English" : "中文";
+        
+        // Refresh current content
+        const selectedButton = document.querySelector('.nav-box button.selected');
+        if (selectedButton) {
+            const category = selectedButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+            updateInfoText(category);
+        }
+    });
+});
+
     </script>
 
-  </body>
+</body>
 </html>
