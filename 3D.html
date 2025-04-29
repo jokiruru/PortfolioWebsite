@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jokiruru's website</title>
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="3Dgallery.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/3Dgallery.css" rel="stylesheet" type="text/css" media="all">
     
 </head>
 <body>
@@ -17,182 +17,312 @@
             <div class="panel-icon" onclick="resetGallery()">
                 <img src="3D/homeicon.png" alt="Home">
             </div>
-                <div class="panel-icon" onclick="showProject('env1', 'Kuus Apartment', 
-                `<p>My environment made for a game tech class. The level is to be set in my character's apartment, which is to be dreary and cramped. I decided to go for a low-poly look because the class also required gameplay in the level. The outdoor gazebo is the area that the player can access after going to sleep in their apartment. It's a remake of my first attempt at making this same scene last year. Remake because I neglected to transfer my files on the school computer to somewhere safe (they were all deleted)
-                <img src='icons/sadcat.webp' alt='sadcat' class='icon'></p>
-                
-                <p>On the bright side, I got a better result this time. It was fun to play with unreal lighting/post-processing to create a more dreamy atmosphere. Unfortunately, it was a last-minute decision to create this second scene so I had to cram it all in one night and will probably have to build upon it in the future.
-                <img src='icons/melody30.gif' alt='melodyroll' class='icon'></p>
-                
-                <p>为我的游戏技术课制作的场景。这个关卡设定在我角色的公寓里，环境氛围是阴郁而狭窄的。我采用了低多边形风格，因为课程要求场景中具备可游玩性。玩家在角色入睡后可进入户外凉亭区域。这是我去年第一次制作这个场景的重制版——因为我当时没保存好学校电脑里的文件，结果全被删掉了。</p>
-                
-                <p>不过也因此，这次的成品更令我满意。我玩了很多 Unreal 的灯光和后期处理功能，营造出梦幻的氛围。遗憾的是，决定制作第二场景是临时起意，我只能一晚内完成全部，未来可能还会继续完善。</p>`
-                )">
-                    <img src="3D/gametechicon.png" alt="Environment 1">
-                </div>
-
-            <div class="panel-icon" onclick="showProject('env2', 'Tech Anim',
-                `<p>A room environment I modeled and rendered in Maya for a technical animation class. The room is based on a jirai-kei girl who likes cute things. This is one of my earlier 3D modeling projects and was very fun!</p>
-
-                <p>为技术动画课制作的室内环境，使用 Maya 建模与渲染。灵感来自一位喜欢可爱风格的“地雷系”女孩。这是我早期的 3D 项目之一，过程非常有趣，也让我学到很多!</p>` )">
-                <img src="3D/techanimicon.png" alt="Environment 2">
-            </div>
-            <div class="panel-icon" onclick="showProject('env3', 'Marinas Room', 
-                `<p>Another room environment that I modeled in Maya and rendered in Unreal Engine 5 for my game art class. The prompt was to imagine/model a not yet exisisting environment for a character. I chose Marina Domek from Fear and Hunger: Termina as my subject since she has a polarizing aesthetic to the other environment I was building in the same quarter. (but also because I adore her)... I will be honest, I was not very proud of my final work for this class because I feel like I couldve done better with the UVs/texturing/overall aesthetic.</p>
-
-                <p>为游戏美术课程建模的房间环境，使用 Maya 制作，并在 Unreal Engine 5 中渲染。主题是为角色构思一个“尚不存在”的生活空间。我选择了《恐惧与饥饿：终末》的 Marina Domek 作为对象，因为她的风格与我同期做的另一个场景形成鲜明对比（而且我真的很喜欢她）。
-                老实说，我对这个作品的最终呈现并不满意，觉得在 UV、贴图和整体美感上还可以做得更好。</p>` )">
-                )">
-                <img src="3D/marinaroomicon.png" alt="Environment 3">
-            </div>
-            <div class="panel-icon" onclick="showProject('env4', 'Outdoor Gazebo', 
-                `<p>made for my digital design aesthetics class. my first experience with 3D modeling and setting up an ue5 scene.</p>
-                <p>为数字设计美学课程制作的项目。是我第一次接触 3D 建模与 Unreal Engine 5 场景搭建的尝试。</p>` )">
-                <img src="3D/ddaicon.png" alt="Environment 4">
-            </div>   
-        </div>
-
-        
-        <div class="left-panel characters hidden">
-        
-                <!-- Home Icon (Appears in Every Category) -->
-            <div class="panel-icon" onclick="resetGallery()">
-                <img src="3D/homeicon.png" alt="Home">
-            </div>
-            <div class="panel-icon characters" onclick="showProject('chara1', 'Low-Poly Kuu', 'Yepp yepppp Ahhh Yep')">
-                <img src="3D/kuuicon.png" alt="Character 1">
-            </div>
-            <div class="panel-icon characters" onclick="showProject('chara2', 'Low-Poly Ruti', 'CLANK CLANK CLANK')">
-                <img src="3D/rutiicon.png" alt="Character 2">
-            </div>
-        </div>
-        
-        <div class="left-panel miscellaneous hidden">
-                <!-- Home Icon (Appears in Every Category) -->
-            <div class="panel-icon" onclick="resetGallery()">
-                <img src="3D/homeicon.png" alt="Home">
-            </div>
-            <div class="panel-icon miscellaneous" onclick="showProject('misc1')">
-                <img src="misc-icon1.png" alt="Misc 1">
-            </div>
-            <div class="panel-icon miscellaneous" onclick="showProject('misc2')">
-                <img src="misc-icon2.png" alt="Misc 2">
-            </div>
+            
+          <div class="panel-icon" onclick="showProject('dollhouse', 'Dollhouse', 
+              `<p>An environment I made to accompany my animation class. I created animated props in Blender and made it a playable environment in Unreal Engine 5 to showcase my 3D character animations. I made the roof of the house in Substance Designer and textured everything in Substance Painter. I handpainted important props and also baked high poly meshes onto the low poly ones to get more details.</p>`,
+              `<p>为了配合动画课制作的环境。我在Blender中制作了可动的道具，并在Unreal Engine 5中搭建成可游玩的场景，用来展示我的3D角色动画。我用Substance Designer制作了屋顶材质，并用Substance Painter为所有物体上色。重要的道具则是手绘纹理，并且通过高模烘焙到低模来丰富细节。</p>`,
+              )">
+              <img src="3D/dollhouseicon.png" alt="dollhouse">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('env1', 'Kuus Apartment', 
+              `<p>My environment made for a game tech class. The level is to be set in my character's apartment, which is to be dreary and cramped. I decided to go for a low-poly look because the class also required gameplay in the level. The outdoor gazebo is the area that the player can access after going to sleep in their apartment. It's a remake of my first attempt at making this same scene last year. Remake because I neglected to transfer my files on the school computer to somewhere safe (they were all deleted)
+              <img src='icons/sadcat.webp' alt='sadcat' class='icon'></p>
+              <p>On the bright side, I got a better result this time. It was fun to play with unreal lighting/post-processing to create a more dreamy atmosphere. Unfortunately, it was a last-minute decision to create this second scene so I had to cram it all in one night and will probably have to build upon it in the future.
+              <img src='icons/melody30.gif' alt='melodyroll' class='icon'></p>`,
+              `<p>为游戏技术课制作的环境，设定是在我的角色公寓内，整体气氛阴沉且狭小。因为需要加入游戏机制，我选择了低模风格。外部的凉亭是玩家在角色睡觉后可以进入的新区域。这个场景其实是去年的一个重制版，当时因为忘记把学校电脑上的文件备份，导致全部被清空了。
+              <img src='icons/sadcat.webp' alt='sadcat' class='icon'></p>
+              <p>不过这次结果反而更好！玩转了Unreal的灯光和后期处理，打造了更梦幻的氛围。只是因为临时决定加第二个场景，赶了一整个晚上，未来可能还会继续完善。
+              <img src='icons/melody30.gif' alt='melodyroll' class='icon'></p>`)">
+              <img src="3D/gametechicon.png" alt="Environment 1">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('env2', 'Tech Anim', 
+              'A room environment I modeled and rendered in Maya for a technical animation class. The room is based on a jirai-kei girl who likes cute things. This is one of my earlier 3D modeling projects and was very fun! (The character was often mistaken to be a self-insert but unfortunately my room is not this cute and she is simply an outlet for my interests...)',
+              '为技术动画课在Maya中建模并渲染的房间环境。灵感来自一位喜欢可爱物品的地雷系女孩。这是我早期的3D建模作品之一，非常有趣！(虽然经常被误认为是自我投射的角色，但可惜我的房间并没有这么可爱，她只是承载了我的兴趣而已...)')">
+              <img src="3D/techanimicon.png" alt="Environment 2">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('env3', 'Marinas Room', 
+              'Another room environment that I modeled in Maya and rendered in Unreal Engine 5 for my game art class. The prompt was to imagine/model a not yet existing environment for a character. I chose Marina Domek from Fear and Hunger: Termina as my subject since she has a polarizing aesthetic to the other environment I was building in the same quarter. (but also because I adore her)... I will be honest, I was not very proud of my final work for this class because I feel like I could’ve done better with the UVs/texturing/overall aesthetic.',
+              '另一个为游戏美术课制作的房间环境，用Maya建模并在Unreal Engine 5中渲染。作业要求是为某个角色设计一个尚不存在的环境。我选择了《Fear and Hunger: Termina》中的Marina Domek，因为她的美学风格与我同期另一个项目形成了强烈对比。(当然也因为我非常喜欢她)...老实说，我对这次成品并不是很满意，觉得无论是UV展开、纹理还是整体美术风格都有提升空间。')">
+              <img src="3D/marinaroomicon.png" alt="Environment 3">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('env4', 'Outdoor Gazebo', 
+              'Made for my digital design aesthetics class. My first experience with 3D modeling and setting up an UE5 scene.',
+              '为数字设计美学课制作的作品。我第一次尝试3D建模及在Unreal Engine 5中搭建场景。')">
+              <img src="3D/ddaicon.png" alt="Environment 4">
+          </div>
+          </div>
+          
+          <!-- CHARACTERS -->
+          <div class="left-panel characters hidden">
+          
+          <div class="panel-icon" onclick="showProject('doll', 'Doll', 
+              'A character model I made recently for my animation class. It is my first time fully sculpting and retopologizing a human model. I used blender to model the character, Substance Painter/Procreate to texture, and plan to use Maya to rig and animate the model for gameplay. It was a very educational process, as I learned about animation topology, as well as better topology flow overall.',
+              '最近为动画课制作的角色模型。这是我第一次完整地雕刻并重新拓扑一个人形角色。建模使用了Blender，纹理用Substance Painter和Procreate绘制，接下来计划用Maya进行绑定和动画制作。整个过程让我学到了动画用拓扑和更流畅的建模流程。')">
+              <img src="3D/Doll.png" alt="doll">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('chara1', 'Low-Poly Kuu', 
+              'A character model I made as an entry to learning character modeling. I am also just a fan of the low-poly style and wanted to make my own characters in said style.',
+              '为了学习角色建模而制作的低模角色。我本身也很喜欢低多边形风格，所以想做属于自己的角色。')">
+              <img src="3D/kuuicon.png" alt="Character 1">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('chara2', 'Low-Poly Ruti', 
+              'A character model I made as an entry to learning character modeling. I am also just a fan of the low-poly style and wanted to make my own characters in said style.',
+              '为了学习角色建模而制作的低模角色。我本身也很喜欢低多边形风格，所以想做属于自己的角色。')">
+              <img src="3D/rutiicon.png" alt="Character 2">
+          </div>
+          </div>
+          
+          <!-- MISCELLANEOUS -->
+          <div class="left-panel miscellaneous hidden">
+          
+          <div class="panel-icon" onclick="showProject('misc1', 'Old Renders', 
+              'My first renders in Unreal Engine and Maya. I rebuilt the first render later on in my environments but it was interesting to learn about building an outdoor scene in UE5.',
+              '我第一次使用Unreal Engine和Maya进行渲染的作品。后来在制作环境项目时重建了当初的场景。这次经历让我学到了如何搭建UE5中的户外场景。')">
+              <img src="3D/3DScene.png" alt="Misc 1">
+          </div>
+          
+          <div class="panel-icon" onclick="showProject('3DDesign', 'Physical 3D', 
+              'Two of my projects from my 3D Design class. I tried making the gazebo that I built in my old renders and also wanted to make some desserts with clay. It was a fun but very tiring class.',
+              '3D设计课中的两个作品项目。我尝试用实体材料复刻了自己旧渲染作品中的凉亭，并且用粘土制作了一些甜点。课程很有趣但也非常耗费精力。')">
+              <img src="3D/claymodel.jpeg" alt="Misc 2">
+          </div>
         </div>
 
         <!-- Right panel (Displays selected project) -->
         <div class="right-panel">
             <div id="default-project" class="project-content active">
-                <img src="3D/hamsterjump.gif" alt="hamster jump">
-                <h2>Welcome to my 3D Gallery! 这是我的3D作品</h2>
-                <p>click on an icon to view project^_^</p>
-                <p>请点击图标以查看项目内容</p>
-                <p>info about each project will show up on the right panel !</p>
-                <p>项目详情将显示在右侧的面板中</p>
-                
+                <img src="hamsterjump.gif" alt="hamster">
+                <h2>
+                    <span class="lang-en">Welcome to my 3D Gallery!</span>
+                    <span class="lang-zh">欢迎来到我的3D作品画廊！</span>
+                </h2>
+                <p>
+                    <span class="lang-en">click on an icon to view project</span>
+                    <span class="lang-zh">点击图标查看项目</span>
+                </p>
+                <p>
+                    <span class="lang-en">info about each project will show up on the right panel !</span>
+                    <span class="lang-zh">每个项目的信息将显示在右侧面板！</span>
+                </p>
             </div>
             
             <!-- ENVIRONMENTS -->
+            <div id="dollhouse" class="project-content">
+                <h2>
+                    <span class="lang-en">Spring 2025</span>
+                    <span class="lang-zh">2025年春季</span>
+                </h2>
+                <img src="3D/dollhouse.png" alt="dollhouse">
+                <img src="3D/dollhouse2.png" alt="dollhouse">
+                <img src="3D/dollhouse3.png" alt="dollhouse">
+                <img src="3D/dollhouse4.png" alt="dollhouse">
+                <img src="3D/dollhouse5.png" alt="dollhouse">
+                <img src="3D/dollhouse6.png" alt="dollhouse">
+                <img src="3D/dollhouse7.png" alt="dollhouse">
+                <h2>
+                <span class="lang-en">Wireframes</span>
+                <span class="lang-zh">线框图</span>
+                </h2>
+                <img src="3D/dollhouse8.png" alt="dollhouse">
+                <h2></h2>
+            </div>
             
             <div id="env1" class="project-content">
-                <h2>Winter 2025</h2>
+                <h2>
+                    <span class="lang-en">Winter 2025</span>
+                    <span class="lang-zh">2025年冬季</span>
+                </h2>
                 <img src="3D/gametech2.png" alt="Environment 1">
                 <img src="3D/gametech3.png" alt="Environment 1">
                 <img src="3D/gametech4.png" alt="Environment 1">
-                <h2>Outdoor Gazebo</h2>
+                <h2>
+                    <span class="lang-en">Outdoor Gazebo</span>
+                    <span class="lang-zh">户外凉亭</span>
+                </h2>
                 <img src="3D/gametech.png" alt="Environment 1">
                 <img src="3D/gametech10.png" alt="Environment 1">
                 <img src="3D/gametech11.png" alt="Environment 1">
-                <h2>Concept Art/Sketches</h2>
+                <h2>
+                    <span class="lang-en">Concept Art/Sketches</span>
+                    <span class="lang-zh">概念艺术/草图</span>
+                </h2>
                 <img src="3D/gametech5.png" alt="Environment 1">
                 <img src="3D/gametech6.png" alt="Environment 1">
-                <h2>Wireframes</h2>
+                <h2>
+                    <span class="lang-en">Wireframes</span>
+                    <span class="lang-zh">线框图</span>
+                </h2>
                 <img src="3D/gametech7.png" alt="Environment 1">
                 <img src="3D/gametech8.png" alt="Environment 1">
                 <img src="3D/gametech9.png" alt="Environment 1">
             </div>
+            
             <div id="env2" class="project-content">
-                <h2>Fall 2024</h2>
+                <h2>
+                    <span class="lang-en">Fall 2024</span>
+                    <span class="lang-zh">2024年秋季</span>
+                </h2>
                 <img src="3D/techanim.jpeg" alt="Environment 2">
-                <h2>Sketch/Concept</h2>
+                <h2>
+                    <span class="lang-en">Sketch/Concept</span>
+                    <span class="lang-zh">草图/概念设计</span>
+                </h2>
                 <img src="3D/techanim2.jpg" alt="Environment 2">
-                <h2>Blockout</h2>
+                <h2>
+                    <span class="lang-en">Blockout</span>
+                    <span class="lang-zh">初步建模</span>
+                </h2>
                 <img src="3D/techanim3.jpg" alt="Environment 2">
-                <h2>Wireframe</h2>
+                <h2>
+                    <span class="lang-en">Blockout</span>
+                    <span class="lang-zh">初步建模</span>
+                </h2>
                 <img src="3D/techanim4.jpg" alt="Environment 2">
-                <h2>Textured Render</h2>
+                <h2>
+                    <span class="lang-en">Textured Render</span>
+                    <span class="lang-zh">带纹理渲染图</span>
+                </h2>
                 <img src="3D/techanim5.jpg" alt="Environment 2">
-                <h2>Character!</h2>
+                <h2>
+                    <span class="lang-en">Character!</span>
+                    <span class="lang-zh">角色展示！</span>
+                </h2>
                 <img src="3D/techanim6.png" alt="Environment 2">
             </div>
+            
             <div id="env3" class="project-content"> <!-- Make sure it's "env3" exactly -->
-                <h2>Fall 2024</h2>
+                <h2>
+                    <span class="lang-en">Fall 2024</span>
+                    <span class="lang-zh">2024年秋季</span>
+                </h2>
                 <img src="3D/marinaroom.jpeg" alt="Environment 3">
                 <div class="gif-text-container">
                 <img src="3D/marinadomek.webp" alt="Environment 3" class="left-gif">
                     <div class="text-box">
                         <h1>Marina Domek</h1>
-                        <p>The character I modeled the room after. She's an occultist from the game Fear and Hunger: Termina.</p>
+                        <p>
+                            <span class="lang-en">A cultist from the game Fear and Hunger: Termina. It is one of my favorite games, and she is one of my favorite characters, so I decided to imagine/create her boarding school room for this project.</span>
+                            <span class="lang-zh">来自游戏《恐惧与饥饿：终点》的邪教徒角色。这是我最喜欢的游戏之一，而她也是我最喜欢的角色之一，因此我为这个项目想象并创造了她的寄宿学校房间。</span>
+                        </p>
                     </div>
                 </div>
-                <h2>Concept Sketches/Art</h2>
+                <h2>
+                    <span class="lang-en">Sketch/Concept</span>
+                    <span class="lang-zh">草图/概念设计</span>
+                </h2>
                 <img src="3D/marinaroom2.png" alt="Environment 3">
                 <img src="3D/marinaroom3.png" alt="Environment 3">
-                <h2>Beauty Shot</h2>
+                <h2>
+                    <span class="lang-en">Beauty Shot</span>
+                    <span class="lang-zh">精美展示图</span>
+                </h2>
                 <img src="3D/marinaroom4.png" alt="Environment 3">
-                <h2>Ue5 Screenshots</h2>
+                <h2>
+                    <span class="lang-en">UE5 Screenshots</span>
+                    <span class="lang-zh">UE5 截图</span>
+                </h2>
                 <img src="3D/marinaroom5.png" alt="Environment 3">
                 <img src="3D/marinaroom6.png" alt="Environment 3">
             </div>
             
-            <div id="env4" class="project-content">
-                <img src="3D/dda.png" alt="Environment 4">
-                <h2>Environment Project 4</h2>
-                <p>Some description here.</p>
-            </div>
-            
             <!-- CHARACTERS -->
-            
+  
+            <div id="doll" class="project-content">
+                <img src="3D/Doll360.gif" alt="Doll">
+                <img src="3D/Doll.png" alt="Doll">
+                <h2>
+                    <span class="lang-en">Wireframe</span>
+                    <span class="lang-zh">线框图</span>
+                </h2>
+                <img src="3D/DollWireframe360.gif" alt="Doll">
+            </div>
             <div id="chara1" class="project-content">
+                <h2>
+                    <span class="lang-en">Kuu Model</span>
+                    <span class="lang-zh">Kuu 模型</span>
+                </h2>
                 <img src="3D/kuu3d.gif" alt="Character 1">
-                <p>Kuu Model</p>
             </div>
             <div id="chara2" class="project-content">
+                <h2>
+                    <span class="lang-en">Ruti Model</span>
+                    <span class="lang-zh">Ruti 模型</span>
+                </h2>
                 <img src="3D/ruti.gif" alt="Character 2">
-                <p>Ruti Model</p>
             </div>
             
             <!-- MISCELLANEOUSS -->
     
             <div id="misc1" class="project-content">
-                <img src="misc1.gif" alt="Miscellaneous 1">
-                <p>Miscellaneous Project 1</p>
+                <h2>
+                    <span class="lang-en">Old Renders</span>
+                    <span class="lang-zh">旧作品渲染图</span>
+                </h2>
+                <img src="3D/dda.png" alt="OldRenders">
+                <img src="3D/3DScene.png" alt="OldRenders">
+                <img src="3D/cake.png" alt="OldRenders">
+                <img src="3D/flower.png" alt="OldRenders">
             </div>
-            <div id="misc2" class="project-content">
-                <img src="misc2.gif" alt="Miscellaneous 2">
-                <p>Miscellaneous Project 2</p>
+            
+            <div id="3DDesign" class="project-content">
+                <h2>
+                    <span class="lang-en">Paper Model</span>
+                    <span class="lang-zh">纸模作品</span>
+                </h2>
+                <img src="3D/papermodel.jpeg" alt="Miscellaneous 2">
+                <h2>
+                    <span class="lang-en">Clay Model</span>
+                    <span class="lang-zh">粘土模型</span>
+                </h2>
+                <img src="3D/claymodel.jpeg" alt="Miscellaneous 2">
             </div>
         </div>
     </div>
         
-        <!-- 🎀 Right Side (Info Box) -->
-        <div class="right-column">
-            <div class="info-box">
-                <h2 class="info-header" id="wobble">3D art</h2>
-                <div class="info-content">
-                  <p>3D stuffs.. I use Blender mostly but also Maya.. I will try to link stuff to art station/sketchfab for the breakdowns.<img src="icons/strawberry2.gif" alt="bear" class="icon">我使用 Blender 和 Maya 建模，用 Substance Painter 进行贴图。</p>
+            <!-- 🎀 Right Side (Info Box) -->
+            <div class="right-column">
+                <div class="info-box">
+                    <h2 class="info-header" id="wobble">
+                        <span class="lang-en">3D art</span>
+                        <span class="lang-zh">3D艺术作品</span>
+                    </h2>
+                    <div class="info-content">
+                        <p>
+                            <span class="lang-en">
+                                3D stuff! I use Blender and Maya for modeling. I use Photoshop/Procreate/Substance Painter/Substance Designer for texturing and I often render my projects in Unreal Engine.
+                            </span>
+                            <span class="lang-zh">
+                                3D作品展示！我使用Blender和Maya进行建模，使用Photoshop、Procreate、Substance Painter和Substance Designer进行材质制作，并经常使用Unreal Engine进行渲染。
+                            </span>
+                            <img src="icons/strawberry2.gif" alt="bear" class="icon">
+                        </p>
                 </div>
             </div>
             <!-- Navigation Panel -->
             <div class="nav-panel">
                 <!-- Buttons for different sections -->
-                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('environment')">Environment</button>
-                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('characters')">Characters</button>
-                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('miscellaneous')">Miscellaneous</button>
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('environment')">
+                    <span class="lang-en">Environment</span>
+                    <span class="lang-zh">环境</span>
+                </button>
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('characters')">
+                    <span class="lang-en">Characters</span>
+                    <span class="lang-zh">角色</span>
+                </button>
+                <button class="btn btn-layered-3d btn-layered-3d--pink" onclick="switchGallery('miscellaneous')">
+                    <span class="lang-en">Miscellaneous</span>
+                    <span class="lang-zh">杂项</span>
+                </button>
             </div>
         </div>
     </div>
-    <a href="index.html" class="swinging-button">
+    <a href="main.html" class="swinging-button">
         <img src="backbtn.png" alt="Back Home">
     </a>
 
@@ -224,16 +354,13 @@ function switchGallery(category) {
     }
 }
 
-function showProject(projectId, projectTitle, projectDesc, event) {
+function showProject(projectId, projectTitle, projectDescEN, projectDescZH, event) {
     const rightPanel = document.querySelector('.right-panel');
     if (rightPanel) {
-        rightPanel.scrollTop = 0; 
+        rightPanel.scrollTop = 0;
     }
 
-    // Hide all projects
     document.querySelectorAll('.project-content').forEach(project => project.classList.remove('active'));
-
-    // Show the selected project
     const selectedProject = document.getElementById(projectId);
     if (selectedProject) {
         selectedProject.classList.add('active');
@@ -241,19 +368,22 @@ function showProject(projectId, projectTitle, projectDesc, event) {
         console.log(`Project ${projectId} not found.`);
     }
 
-    // Update info panel text
     document.querySelector('.info-header').innerText = projectTitle;
-    document.querySelector('.info-box p').innerHTML = projectDesc;
 
-    // Remove highlight from all icons
+    const currentLang = document.body.classList.contains('zh') ? 'zh' : 'en';
+    if (currentLang === 'zh') {
+        document.querySelector('.info-box p').innerHTML = projectDescZH;
+    } else {
+        document.querySelector('.info-box p').innerHTML = projectDescEN;
+    }
+
     document.querySelectorAll('.panel-icon').forEach(icon => icon.classList.remove('active-icon'));
-
-    // Highlight the clicked icon
-    const clickedIcon = event.currentTarget;
+    const clickedIcon = event?.currentTarget;
     if (clickedIcon) {
         clickedIcon.classList.add('active-icon');
     }
 }
+
 
 // Function to reset gallery to default view
 function resetGallery() {
@@ -287,8 +417,15 @@ function resetGallery() {
 function resetInfoPanel() {
     let infoPanel = document.querySelector('.right-column'); 
     if (infoPanel) {
-        infoPanel.querySelector('.info-header').innerText = "3D art";
-        infoPanel.querySelector('.info-box p').innerHTML = `3D stuffs.. I use Blender mostly but also Maya.. I will try to link stuff to ArtStation/Sketchfab for the breakdowns. <img src="icons/strawberry2.gif" alt="bear" class="icon">我使用 Blender 和 Maya 建模，用 Substance Painter 进行贴图。`;
+        const isChinese = document.body.classList.contains('zh');
+
+        if (isChinese) {
+            infoPanel.querySelector('.info-header').innerText = "3D艺术";
+            infoPanel.querySelector('.info-box p').innerHTML = `3D作品！我使用Blender和Maya进行建模，Photoshop/Procreate/Substance Painter/Substance Designer进行纹理绘制，最终常在Unreal Engine 5中渲染<img src="icons/strawberry2.gif" alt="bear" class="icon">`;
+        } else {
+            infoPanel.querySelector('.info-header').innerText = "3D art";
+            infoPanel.querySelector('.info-box p').innerHTML = `3D stuff! I use Blender and Maya for modeling. I use Photoshop/Procreate/Substance Painter/Substance Designer for texturing and I often render my projects in Unreal Engine 5<img src="icons/strawberry2.gif" alt="bear" class="icon">`;
+        }
     }
 }
 
@@ -332,6 +469,43 @@ function showDefaultProject() {
         cursor.style.top = `${e.pageY}px`;
     });
 
+// Language management
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("toggle-language");
+    
+    // Set initial language
+    const savedLang = localStorage.getItem("preferredLanguage") || "en";
+    document.body.classList.add(savedLang); // Add language class to body
+    toggleButton.textContent = savedLang === "zh" ? "English" : "中文";
+    
+    // Initialize gallery with correct language
+    const defaultButton = document.querySelector('.nav-box button');
+    if (defaultButton) {
+        defaultButton.classList.add('selected');
+        const initialCategory = defaultButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+        showGallery(initialCategory);
+        updateInfoText(initialCategory);
+    }
+
+    // Language toggle handler
+    toggleButton.addEventListener("click", () => {
+        const currentLang = document.body.classList.contains("zh") ? "zh" : "en";
+        const newLang = currentLang === "en" ? "zh" : "en";
+        
+        // Update language state
+        document.body.classList.remove(currentLang);
+        document.body.classList.add(newLang);
+        localStorage.setItem("preferredLanguage", newLang);
+        toggleButton.textContent = newLang === "zh" ? "English" : "中文";
+        
+        // Refresh current content
+        const selectedButton = document.querySelector('.nav-box button.selected');
+        if (selectedButton) {
+            const category = selectedButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+            updateInfoText(category);
+        }
+    });
+});
 </script>
     <script src="cursorbubble.js"></script>
     <script src="textwobble.js"></script>
