@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
   <head>
     <meta charset="UTF-8">
@@ -8,11 +7,10 @@
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="gallery.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/gallery.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-  <div class="custom-cursor"></div>
                     
                   <div class="popup" id="videoPopup">
                     <span class="close-btn" onclick="closePopup()">✖</span>
@@ -22,15 +20,30 @@
     <div class="container">
         <div class="left-column">
             <div class="info-box">
-                <div class="info-text">
-                  <p>Here is where I will store my 2D artworks. I draw mostly on my ipad and am a fan of drawing characters^_^</p>
-                  <p>click to view in new tab!<img src="icons/strawberry2.gif" alt="bear" class="icon"></p>
-                </div>
+          <div class="info-text">
+              <div class="lang-en">
+                  <p>Here is where I will store my 2D artworks. I draw mostly on my iPad and am a fan of drawing characters ^_^</p>
+                  <p>Click to view in a new tab! <img src="icons/strawberry2.gif" alt="bear" class="icon"></p>
+              </div>
+              <div class="lang-zh">
+                  <p>这里是我存放2D作品的地方！我主要用iPad画画，很喜欢画角色 ^_^</p>
+                  <p>点开图片可以在新标签页查看！<img src="icons/strawberry2.gif" alt="bear" class="icon"></p>
+              </div>
+          </div>
             </div>
             <div class="nav-box">
-                <button onclick="showGallery('illustrations'); updateInfoText('illustrations')">Illustrations</button>
-                <button onclick="showGallery('animations'); updateInfoText('animations')">Anim/Vids</button>
-                <button onclick="showGallery('traditional'); updateInfoText('traditional')">Traditional</button>
+          <button onclick="showGallery('illustrations'); updateInfoText('illustrations')">
+              <span class="lang-en">Illustrations</span>
+              <span class="lang-zh">插画</span>
+          </button>
+          <button onclick="showGallery('animations'); updateInfoText('animations')">
+              <span class="lang-en">Anim/Vids</span>
+              <span class="lang-zh">动画/视频</span>
+          </button>
+          <button onclick="showGallery('miscellaneous'); updateInfoText('miscellaneous')">
+              <span class="lang-en">Miscellaneous</span>
+              <span class="lang-zh">其他</span>
+          </button>
             </div>
         </div>
     
@@ -43,7 +56,7 @@
 
     </div>
     
-    <a href="index.html" class="swinging-button">
+    <a href="main.html" class="swinging-button">
         <img src="backbtn.png" alt="Back Home">
     </a>
     
@@ -53,23 +66,22 @@
       buttons.forEach(button => {
           button.addEventListener('click', function() {
               buttons.forEach(btn => btn.classList.remove('selected'));
-      
               button.classList.add('selected');
-      
-              const category = button.textContent.toLowerCase(); 
               
-              if (category === 'anim/vids') {
-                  category = 'animations'; 
-              }
+              // Get category from onclick attribute instead of textContent
+              const category = button.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
               showGallery(category);
+              updateInfoText(category);
           });
       });
-
-          window.onload = function() {
+      
+      // Initialize default gallery
+      window.onload = function() {
           const defaultButton = document.querySelector('.nav-box button');
           if (defaultButton) {
               defaultButton.classList.add('selected');
-            showGallery('illustrations'); 
+              const initialCategory = defaultButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+              showGallery(initialCategory); 
           }
       }
 
@@ -93,7 +105,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">drawing of kuu</p>
+                          <p class="description">kuu</p>
                       </div>
                   </div>
               </div>
@@ -125,11 +137,11 @@
               <div class="gallery-item">
                   <div class="gallery-content-box">
                       <a href="2D/rutikuudream.png" target="_blank">
-                          <img src="2D/rutikuudream.png" class="art" alt="yayy rutikuu art again....">
+                          <img src="2D/rutikuudream.png" class="art" alt="rutikuu....">
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">yayy rutikuu art again....</p>
+                          <p class="description">rutikuu game cover....</p>
                       </div>
                   </div>
               </div>
@@ -189,7 +201,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">cope</p>
+                          <p class="description">lodish comfort</p>
                       </div>
                   </div>
               </div>
@@ -201,7 +213,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">rutikuu.. drawing i did for the theme green</p>
+                          <p class="description">rutikuu drawing i did for the theme green</p>
                       </div>
                   </div>
               </div>
@@ -213,7 +225,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">ruti yayyyy</p>
+                          <p class="description">ruti yayy</p>
                       </div>
                   </div>
               </div>
@@ -237,7 +249,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">kzscr yay</p>
+                          <p class="description">kzscr</p>
                       </div>
                   </div>
               </div>
@@ -249,7 +261,7 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">kzscr yay</p>
+                          <p class="description">kzscr</p>
                       </div>
                   </div>
               </div>
@@ -261,74 +273,241 @@
                       </a>
                       <img src="lace.png" class="divider" alt="">
                       <div class="description-box">
-                          <p class="description">kzscr yay</p>
+                          <p class="description">kzscr</p>
                       </div>
                   </div>
               </div>
           `;
-              } else if (category === 'animations') {
-                  videoContent.style.display = 'flex'; 
+          } else if (category === 'animations') {
+              videoContent.style.display = 'flex'; 
                   videoContent.innerHTML = `
+                      <div class="video-item">
+                          <div class="gallery-video lang-en" onclick="openPopupVimeo('https://player.vimeo.com/video/1067995536?h=500100cbd0')">
+                              <img src="video/vidthumbnail2.jpg" alt="WackyWorld Thumbnail">
+                              <div class="play-button"></div>
+                          </div>
+                          
+                       <div class="gallery-video lang-zh" 
+                           onclick="openPopupVimeo('https://player.bilibili.com/player.html?isOutside=true&aid=114412610390678&bvid=BV18QLCzhEcU&cid=29649735277&p=1')">
+                          <img src="video/vidthumbnail2.jpg" alt="Wackyworld">
+                          <div class="play-button"></div>
+                       </div>
+                      
+                          <div class="video-description-box">
+                              <h3 class="gallery-header">
+                                  <img src="icons/melody45.gif" alt="melodyopen" class="icon"> 
+                                  <span class="lang-en">Wacky World</span>
+                                  <span class="lang-zh">古怪世界</span>
+                                  <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                              </h3>
+                              <div class="lang-en">
+                                  <p class="gallery-description">A trend with the audio Wacky World by ZAMination.</p>
+                                  <p class="gallery-description">I thought it was really cute and wanted to draw my character in my favorite media...</p>
+                              </div>
+                              <div class="lang-zh">
+                                  <p class="gallery-description">这是用ZAMination的《Wacky World》音频制作的流行趋势作品！</p>
+                                  <p class="gallery-description">我觉得这个趋势超——可爱！所以把我的角色画进了喜欢的作品里...</p>
+                              </div>
+                          </div>
+                      </div>
+                      
+                              
                   <div class="video-item">
-                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1067995536?h=500100cbd0')">
-                          <img src="video/vidthumbnail2.jpg" alt="WackyWorld Thumbnail">
+                    <div class="gallery-video lang-en" onclick="openPopupVimeo('https://player.vimeo.com/video/1068225393?h=da7dd894e5')">
+                        <img src="video/monitoring.jpg" alt="Monitoring Thumbnail">
+                        <div class="play-button"></div>
+                    </div>
+                    
+                    <div class="gallery-video lang-zh" 
+                           onclick="openPopupVimeo('https://player.bilibili.com/player.html?isOutside=true&aid=114412610456765&bvid=BV1SQLCzhEAr&cid=29649797626&p=1')">
+                          <img src="video/monitoring.jpg" alt="Monitoring Thumbnail">
+                          <div class="play-button"></div>
+                    </div>
+                    
+                    <div class="video-description-box">
+                        <h3 class="gallery-header">
+                            <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                            <span class="lang-en">Monitoring</span>
+                            <span class="lang-zh">监控中</span>
+                            <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                        </h3>
+                        <div class="lang-en">
+                            <p class="gallery-description">Another animation with the song Monitoring by Deco27*! The first half is inspired by the music video and the second half I just wanted to experiment</p>
+                        </div>
+                        <div class="lang-zh">
+                            <p class="gallery-description">这是用Deco27*的《Monitoring》制作的动画！前半部分参考了原版MV，后半部分则是我的自由发挥实验</p>
+                        </div>
+                    </div>
+                </div>
+                
+                  
+                  <div class="video-item">
+                      <div class="gallery-video lang-en" onclick="openPopupVimeo('https://player.vimeo.com/video/1067995514?h=19b2202126')">
+                          <img src="video/killingtime.jpg" alt="Animation 3 Thumbnail">
                           <div class="play-button"></div>
                       </div>
+                      
+                      <div class="gallery-video lang-zh" 
+                             onclick="openPopupVimeo('https://player.bilibili.com/player.html?isOutside=true&aid=114412593612180&bvid=BV1b9LCzFEax&cid=29649667918&p=1')">
+                          <img src="video/killingtime.jpg" alt="Animation 3 Thumbnail">
+                            <div class="play-button"></div>
+                      </div>
+                      
                       <div class="video-description-box">
-                          <h3 class="gallery-header"><img src="icons/melody45.gif" alt="melodyopen" class="icon"> Wacky World<img src="icons/melody46.gif" alt="melodyclose" class="icon"></h3>
-                          <p class="gallery-description">A trend with the audio Wacky World by ZAMination.</p> 
-                          <p class="gallery-description">I thought it was really cute and wanted to draw my character, Kuu, in various RPGmaker games that I am fond of! Though I also added Papa's Bakeria and Yumeiro Patissiere because it was too hard to Not put my baking character in universes surrounding baking...</p>
+                          <h3 class="gallery-header">
+                              <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                              <span class="lang-en">Killing Time</span>
+                              <span class="lang-zh">消磨时光</span>
+                              <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                          </h3>
+                          <div class="lang-en">
+                              <p class="gallery-description">A video made to the song Killing Time by Magdalena Bay. They make my favorite songs and this part really stuck with me. I also wanted to do something with the 3D environment I was building for class.</p>
+                          </div>
+                          <div class="lang-zh">
+                              <p class="gallery-description">以Magdalena Bay的《Killing Time》创作的视频。他们的歌是我的最爱，这段旋律让我特别有感触。同时也想展示我为课程制作的3D场景。</p>
+                          </div>
                       </div>
                   </div>
                 
+                  
                   <div class="video-item">
-                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1068225393?h=da7dd894e5')">
-                          <img src="video/monitoring.jpg" alt="Monitoring Thumbnail">
+                      <div class="gallery-video lang-en" onclick="openPopupVimeo('https://player.vimeo.com/video/1068226196?h=3b733930d2')">
+                          <img src="video/holygrail.jpg" alt="Animation 4 Thumbnail">
                           <div class="play-button"></div>
                       </div>
+                      
+                      <div class="gallery-video lang-zh" 
+                           onclick="openPopupVimeo('https://player.bilibili.com/player.html?isOutside=true&aid=114412610389203&bvid=BV18QLCzhEu4&cid=29649797724&p=1')">
+                          <img src="video/holygrail.jpg" alt="Animation 4 Thumbnail">
+                          <div class="play-button"></div>
+                      </div>
+                      
                       <div class="video-description-box">
-                          <h3 class="gallery-header"><img src="icons/melody45.gif" alt="melodyopen" class="icon"> Monitoring<img src="icons/melody46.gif" alt="melodyclose" class="icon"></h3>
-                          <p class="gallery-description">Another animation with the song Monitoring by Deco27*! The first half is inspired by the music video and the second half I just wanted to play around</p>
+                          <h3 class="gallery-header">
+                              <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                              <span class="lang-en">Holy Grail</span>
+                              <span class="lang-zh">圣杯</span>
+                              <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                          </h3>
+                          <div class="lang-en">
+                              <p class="gallery-description">Another trend with Cuphead Rap by JTmusic. I wanted to learn tweening and animating in after effects.. it was fun to make</p>
+                          </div>
+                          <div class="lang-zh">
+                              <p class="gallery-description">这是JTmusic《茶杯头说唱》的另一个二创作品。主要想练习After Effects的补间动画技巧...制作过程非常有趣！</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  
+                  <div class="video-item">
+                      <div class="gallery-video lang-en" onclick="openPopupVimeo('https://player.vimeo.com/video/1068226350?h=f10678a02b')">
+                          <img src="video/nostalgia.jpg" alt="Animation 5 Thumbnail">
+                          <div class="play-button"></div>
+                      </div>
+                      <div class="gallery-video lang-zh" 
+                           onclick="openPopupVimeo('https://player.bilibili.com/player.html?isOutside=true&aid=114412341955156&bvid=BV1XFLrztEbJ&cid=29649407755&p=1')">
+                          <img src="video/nostalgia.jpg" alt="Nostalgia">
+                          <div class="play-button"></div>
+                      </div>
+                      
+                      
+                      <div class="video-description-box">
+                          <h3 class="gallery-header">
+                              <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                              <span class="lang-en">Nostalgia</span>
+                              <span class="lang-zh">怀旧</span>
+                              <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                          </h3>
+                          <div class="lang-en">
+                              <p class="gallery-description">An edit of my characters with some drawings I made of them. The song is Nostalgia by Chill Aqua</p>
+                          </div>
+                          <div class="lang-zh">
+                              <p class="gallery-description">我的角色们和他们的插画合集，背景音乐是Chill Aqua的《Nostalgia》</p>
+                          </div>
                       </div>
                   </div>
                   
                   <div class="video-item">
-                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1067995514?h=19b2202126')">
-                          <img src="video/vidthumbnail1.jpg" alt="Animation 3 Thumbnail">
+                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1068225615?h=7447d6fea1')">
+                          <img src="video/kuutween.jpg" alt="Animation 6 Thumbnail">
                           <div class="play-button"></div>
                       </div>
                       <div class="video-description-box">
-                          <h3 class="gallery-header"><img src="icons/melody45.gif" alt="melodyopen" class="icon"> Killing Time<img src="icons/melody46.gif" alt="melodyclose" class="icon"></h3>
-                          <p class="gallery-description">A video made to the song Killing Time by Magdalena Bay. They make my favorite songs and this part really stuck with me. I also wanted to do something with the 3D environment I was building for class.</p>                        
+                          <h3 class="gallery-header">
+                              <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                              <span class="lang-en">Kuu Tween</span>
+                              <span class="lang-zh">Kuu补间动画</span>
+                              <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                          </h3>
+                          <div class="lang-en">
+                              <p class="gallery-description">I wanted to practice tweening 2D art using After Effects! Song is Glitter by lexycat</p>
+                          </div>
+                          <div class="lang-zh">
+                              <p class="gallery-description">用After Effects练习2D补间动画！背景音乐是lexycat的《Glitter》</p>
+                          </div>
                       </div>
                   </div>
                   
-                    <div class="video-item">
-                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1068226196?h=3b733930d2')">
-                          <img src="video/vidthumbnail4.jpg" alt="Animation 4 Thumbnail">
+                  <div class="video-item">
+                      <div class="gallery-video" onclick="openPopupVimeo('https://player.vimeo.com/video/1068226294?h=8ebf4290ec')">
+                          <img src="video/rutitween.jpg" alt="Animation 7 Thumbnail">
                           <div class="play-button"></div>
                       </div>
                       <div class="video-description-box">
-                          <h3 class="gallery-header"><img src="icons/melody45.gif" alt="melodyopen" class="icon"> Holy Grail<img src="icons/melody46.gif" alt="melodyclose" class="icon"></h3>
-                          <p class="gallery-description">Anotherrr trend with Cuphead Rap by JTmusic lol... I wanted to learn tweening and animating in after effects.. it was fun to make</p>                       
+                          <h3 class="gallery-header">
+                              <img src="icons/melody45.gif" alt="melodyopen" class="icon">
+                              <span class="lang-en">Ruti Tween</span>
+                              <span class="lang-zh">Ruti补间动画</span>
+                              <img src="icons/melody46.gif" alt="melodyclose" class="icon">
+                          </h3>
+                          <div class="lang-en">
+                              <p class="gallery-description">Matching tween practice with Ruti. Song is Twinkle Winkle by Goreshit</p>
+                          </div>
+                          <div class="lang-zh">
+                              <p class="gallery-description">Ruti的配套补间动画练习，背景音乐是Goreshit的《Twinkle Winkle》</p>
+                          </div>
                       </div>
                   </div>
+                
                 `;
 
-              } else if (category === 'traditional') {
+              } else if (category === 'miscellaneous') {
                   galleryContent.style.display = 'grid'; 
                   galleryContent.innerHTML = `
                       <div class="gallery-item">
-                          <img src="traditional1.png">
-                          <p class="description">hi</p>
+                          <div class="gallery-content-box">
+                              <a href="2D/bookvector.jpg" target="_blank">
+                                  <img src="2D/bookvector.jpg" class="art" alt="bookvector">
+                              </a>
+                              <img src="lace.png" class="divider" alt="">
+                              <div class="description-box">
+                                  <p class="description">book vector UI art</p>
+                              </div>
+                          </div>
                       </div>
+                      
                       <div class="gallery-item">
-                          <img src="traditional2.png">
-                          <p class="description">hi</p>
+                          <div class="gallery-content-box">
+                              <a href="2D/rutikuuvector.jpg" target="_blank">
+                                  <img src="2D/rutikuuvector.jpg" class="art" alt="bookvector">
+                              </a>
+                              <img src="lace.png" class="divider" alt="">
+                              <div class="description-box">
+                                  <p class="description">character vector art</p>
+                              </div>
+                          </div>
                       </div>
+                      
                       <div class="gallery-item">
-                          <img src="traditional3.png">
-                          <p class="description">hi</p>
+                          <div class="gallery-content-box">
+                              <a href="2D/menu.jpg" target="_blank">
+                                  <img src="2D/menu.jpg" class="art" alt="menu">
+                              </a>
+                              <img src="lace.png" class="divider" alt="">
+                              <div class="description-box">
+                                  <p class="description">menu</p>
+                              </div>
+                          </div>
                       </div>
                   `;
               }
@@ -388,32 +567,96 @@
                 }
             });
             
-            function updateInfoText(category) {
-            const infoText = document.querySelector('.info-text');
-        
-            let content = '';
-            if (category === 'illustrations') {
-                content = `
-                    <p>Here is where I will store my 2D artworks. I draw mostly on my ipad and am a fan of drawing characters^_^</p>
-                    <p>Click to view in a new tab! <img src="icons/strawberry2.gif" alt="strawberry" class="icon"></p>
-                `;
-            } else if (category === 'animations') {
-                content = `
-                    <p>These are my animations & videos! I use procreate to animate and I love to play around in After Effects its my fav adobe program ever...</p>
-                    <p>Click to watch! <img src="icons/melody21.gif" alt="melodytv" class="icon"></p>
-                    <p>Apologies if the videos seem low-quality, I really love applying jpeg damage to my videos and adore the lowres aesthetic!</p>
-                `;
-            } else if (category === 'traditional') {
-                content = `
-                    <p>Miscellaneous stuff will go here probably.</p>
-                    <p>View them here! <img src="icons/flower.gif" alt="flower" class="icon"></p>
-                `;
-            }
-        
-            infoText.innerHTML = content; 
-        }
+function updateInfoText(category) {
+    const infoText = document.querySelector('.info-text');
+    const currentLang = localStorage.getItem("preferredLanguage") || "en";
+    
+    // Create fresh content
+    let content = '';
+    
+    if (category === 'illustrations') {
+        content = currentLang === 'en' ? `
+            <div class="lang-en">
+                <p>Here is where I will store my 2D artworks...</p>
+                <p>Click to view in a new tab! <img src="icons/strawberry2.gif" class="icon"></p>
+            </div>
+        ` : `
+            <div class="lang-zh">
+                <p>这里是我存放2D作品的地方！...</p>
+                <p>点开图片可以在新标签页查看<img src="icons/strawberry2.gif" class="icon"></p>
+            </div>
+        `;
+    }
+    else if (category === 'animations') {
+        content = currentLang === 'en' ? `
+            <div class="lang-en">
+                <p>These are my animations and videos! I draw with Procreate and I edit in Adobe After Effects!</p>
+                <p>Click to watch! <img src="icons/melody21.gif" class="icon"></p>
+                <p>Apologies if the videos seem low-quality...</p>
+            </div>
+        ` : `
+            <div class="lang-zh">
+                <p>这些是我的动画和视频作品！...我用Procreate绘制动画，并用Adobe After Effects进行后期编辑</p>
+                <p>点击观看！<img src="icons/melody21.gif" class="icon"></p>
+                <p>如果视频看起来画质不高请见谅...</p>
+            </div>
+        `;
+    }
+    else if (category === 'miscellaneous') {
+        content = currentLang === 'en' ? `
+            <div class="lang-en">
+                <p>Miscellaneous pieces! Things I wouldn't categorize into illustrations.</p>
+                <p>View them here! <img src="icons/flower.gif" class="icon"></p>
+            </div>
+        ` : `
+            <div class="lang-zh">
+                <p>别的做品。</p>
+                <p>在这里查看！<img src="icons/parfait.gif" class="icon"></p>
+            </div>
+        `;
+    }
+    
+    infoText.innerHTML = content;
+    }
 
-    </script>
+// Language management
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("toggle-language");
+    
+    // Set initial language
+    const savedLang = localStorage.getItem("preferredLanguage") || "en";
+    document.body.classList.add(savedLang); // Add language class to body
+    toggleButton.textContent = savedLang === "zh" ? "English" : "中文";
+    
+    // Initialize gallery with correct language
+    const defaultButton = document.querySelector('.nav-box button');
+    if (defaultButton) {
+        defaultButton.classList.add('selected');
+        const initialCategory = defaultButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+        showGallery(initialCategory);
+        updateInfoText(initialCategory);
+    }
+
+    // Language toggle handler
+    toggleButton.addEventListener("click", () => {
+        const currentLang = document.body.classList.contains("zh") ? "zh" : "en";
+        const newLang = currentLang === "en" ? "zh" : "en";
+        
+        // Update language state
+        document.body.classList.remove(currentLang);
+        document.body.classList.add(newLang);
+        localStorage.setItem("preferredLanguage", newLang);
+        toggleButton.textContent = newLang === "zh" ? "English" : "中文";
+        
+        // Refresh current content
+        const selectedButton = document.querySelector('.nav-box button.selected');
+        if (selectedButton) {
+            const category = selectedButton.getAttribute('onclick').match(/showGallery\('(.+?)'\)/)[1];
+            updateInfoText(category);
+        }
+    });
+});
+</script>
     <script src="cursorbubble.js"></script>
   </body>
 </html>
