@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamscape</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cursorbubble.js"></script>
+    <script src="textwobble.js"></script>
+</head>
+<body>
+
+<div class="panel">
+    <!-- 🎀 Left Panel (Buttons) -->
+    <div class="flex-container">
+    
+    <div class="button-panel">
+        <a href="index.html">
+            <img src="icon-home.png" class="icon"> 
+            <span class="lang-en">Home</span>
+            <span class="lang-zh" style="display: none;">首页</span>
+        </a>
+        <a href="2D.html">
+            <img src="icon-2D.png" class="icon"> 
+            <span class="lang-en">2D Art</span>
+            <span class="lang-zh" style="display: none;">2D 艺术</span>
+        </a>
+        <a href="3D.html">
+            <img src="icon-3D.png" class="icon"> 
+            <span class="lang-en">3D Art</span>
+            <span class="lang-zh" style="display: none;">3D 艺术</span>
+        </a>
+        <a href="games.html">
+            <img src="icon-games.png" class="icon"> 
+            <span class="lang-en">Games</span>
+            <span class="lang-zh" style="display: none;">游戏</span>
+        </a>
+        <a href="about.html">
+            <img src="icon-about.png" class="icon"> 
+            <span class="lang-en">About</span>
+            <span class="lang-zh" style="display: none;">关于</span>
+        </a>
+  </div>
+
+
+  <img src="indexbow.png" class="bow-image" alt="Decorative bow">
+    <!-- Right Panel (Content) -->
+    <div class="flex-panel">
+        <!-- Sub Panel -->
+        <div class="flex-panel-welcome">
+            <div class="welcome-content">
+                <h2 class="welcome-text" id="wobble">Welcome...</h2>
+            </div>
+        </div>
+        
+        <!-- Lace Divider -->
+        <div class="lace-divider"></div>
+        
+        <div class="text-content">
+        
+            <div class="lang-en">
+                <p>Hiii, my name is aira and I'm a game artist/developer with a passion for cute fashion and desserts ^_^ <img src="icons/parfait.gif" alt="ParfaitGif" class="icon"></p>
+                <p>I created this page mainly to use as a portfolio but also to have a space for myself/my work... have a look around!<img src="icons/bearbow.gif" alt="bear" class="icon"></p>
+                <p>btw I am still working on refining this site SORRY !<img src="icons/spiral.webp" alt="spiral" class="icon"></p>
+            </div>
+        
+            <div class="lang-zh" style="display: none;">
+                <p>嗨！我是 aira，一名热爱可爱时尚和甜点的游戏美术师/开发者 ^_^ <img src="icons/parfait.gif" alt="ParfaitGif" class="icon"></p>
+                <p>我主要把这个网站作为作品集，也是我的个人空间... 欢迎来参观！<img src="icons/bearbow.gif" alt="bear" class="icon"></p>
+                <p>目前还在大修阶段，抱歉啦～<img src="icons/spiral.webp" alt="spiral" class="icon"></p>
+            </div>
+        
+            <img src="shelfdiv.png" alt="shelfdiv" style="width: 95%">
+        
+            <iframe src="https://www3.cbox.ws/box/?boxid=3545114&boxtag=qJXTIA" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+        
+        </div>
+
+    </div>
+        <img src="indexkuu.png" alt="kuuimage" class="indexkuu-image">
+  </div>
+</div>
+
+<div class="custom-player">
+    <button id="playPauseBtn">
+        <img id="playPauseImg" src="playbtn.png" alt="Play">
+    </button>
+    <input type="range" id="progressBar" value="0" step="1">
+    <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+    <span><img src="icons/musicnote.gif" alt="volume" class="icon"></span>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+    <audio id="audio" src="https://files.catbox.moe/fs7jav.mp3" type="audio/mpeg"loop></audio> <!-- Audio File -->
+</div>
+
+<script>
+        const audio = document.getElementById("audio");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const playPauseImg = document.getElementById("playPauseImg");
+        const progressBar = document.getElementById("progressBar");
+        const currentTimeDisplay = document.getElementById("currentTime");
+        const totalTimeDisplay = document.getElementById("totalTime");
+        const volumeControl = document.getElementById("volumeControl");
+
+    // Play/Pause button function
+    playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playPauseImg.src = "pausebtn.png"; // Change to pause image
+        } else {
+            audio.pause();
+            playPauseImg.src = "playbtn.png"; // Change back to play image
+        }
+    });
+    
+    
+// Update progress bar
+audio.addEventListener("timeupdate", () => {
+    progressBar.value = (audio.currentTime / audio.duration) * 100;
+    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+});
+
+// Seek audio when progress bar is changed
+progressBar.addEventListener("input", () => {
+    audio.currentTime = (progressBar.value / 100) * audio.duration;
+});
+
+// Display total time when audio is loaded
+audio.addEventListener("loadedmetadata", () => {
+    totalTimeDisplay.textContent = formatTime(audio.duration);
+});
+
+// Volume control
+volumeControl.addEventListener("input", () => {
+    audio.volume = volumeControl.value;
+});
+
+// Function to format time (e.g., 1:30)
+function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+}
+
+document.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector(".custom-cursor");
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+});
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleButton = document.getElementById("toggle-language");
+            const englishTexts = document.querySelectorAll(".lang-en");
+            const chineseTexts = document.querySelectorAll(".lang-zh");
+        
+            function showLanguage(lang) {
+                console.log("Changing language to:", lang); // Debug log
+                if (lang === "zh") {
+                    englishTexts.forEach(el => el.style.display = "none");
+                    chineseTexts.forEach(el => el.style.display = "block");
+                    toggleButton.textContent = "English";
+                } else {
+                    englishTexts.forEach(el => el.style.display = "block");
+                    chineseTexts.forEach(el => el.style.display = "none");
+                    toggleButton.textContent = "中文";
+                }
+            }
+        
+            // Load saved language choice
+            let savedLang = localStorage.getItem("preferredLanguage") || "en";
+            showLanguage(savedLang);
+        
+            toggleButton.addEventListener("click", () => {
+                let currentLang = (localStorage.getItem("preferredLanguage") === "zh") ? "en" : "zh";
+                console.log("Current language before change:", currentLang); // Debug log
+                showLanguage(currentLang);
+                localStorage.setItem("preferredLanguage", currentLang);
+            });
+        });
+</script>
+    
+</body>
+</html>
